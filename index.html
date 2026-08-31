@@ -100,7 +100,8 @@
       radial-gradient(ellipse 700px 500px at 8% 90%, rgba(224,203,150,.35), transparent 62%),
       var(--ivory);
   }
-  .hero .wrap{position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:stretch; padding-top:28px; padding-bottom:28px;}
+  .hero .wrap{position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:stretch; padding-top:28px; padding-bottom:28px; min-height:480px;}
+  .hero-copy{display:flex; flex-direction:column; justify-content:center;}
   .hero h1{font-size:clamp(2.5rem,4.6vw,3.9rem); line-height:1.06; margin-bottom:22px;}
   .hero h1 em{font-style:italic; color:var(--sacred); font-family:'Work Sans',sans-serif; font-weight:600;}
   .hero p.lead{font-size:18px; color:var(--ink-soft); max-width:480px; margin-bottom:32px;}
@@ -414,7 +415,7 @@
 
 <header class="site">
   <div class="wrap">
-    <div class="logo"><img src="images/logoAZ-mailing.png" alt="AZ Aurum"></div>
+    <div class="logo"><img src="images/azlogo-v1.png" alt="AZ Aurum — Numizmatyka Adam Zieliński"></div>
     <div class="head-contact">
       <a href="tel:784622333"><span class="head-phone">784 622 333</span></a>
       <span>pon–pt 9:00–17:00</span>
@@ -426,7 +427,7 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="wrap">
-    <div>
+    <div class="hero-copy">
       <div class="eyebrow">Kolekcja numizmatyczna</div>
       <h1>Dziesięć Przykazań<br><em>wyryte w złocie.</em></h1>
       <p class="lead">Dziesięć numizmatów, dziesięć przykazań — każdy egzemplarz wybity w czystym złocie próby 999,9,
@@ -477,6 +478,50 @@
   </div>
 </section>
 
+<section>
+  <div class="wrap about-grid">
+    <div class="about-visual">
+      <img src="images/10przykazan-esklep1.jpg" alt="Otwarta szkatuła kolekcjonerska z dziesięcioma numizmatami serii Dziesięć Przykazań, certyfikatem autentyczności i kapsułami ochronnymi">
+      <div class="overlay-quote"><p>„Dziesięć słów, które od tysięcy lat kształtują ludzkie sumienie.”</p></div>
+    </div>
+    <div class="about-copy">
+      <div class="eyebrow">O kolekcji</div>
+      <h2 style="margin-bottom:22px;">Jeden z najstarszych tekstów w historii, zamknięty w złocie</h2>
+      <p>Dekalog to jeden z najstarszych i najbardziej rozpoznawalnych tekstów w historii cywilizacji. Kolekcja
+      „Dziesięć Przykazań” przenosi ten motyw na język współczesnego numizmatu — dziesięć osobnych medali,
+      każdy z osobnym motywem graficznym, wybity w czystym złocie.</p>
+      <p>Projekt graficzny każdego egzemplarza łączy klasyczną formę tablicy z precyzją rytownictwa mennicznego.
+      To kolekcja, która buduje się miesiąc po miesiącu — a każdy element można oglądać, dotykać i ocenić osobno,
+      zanim zdecydujesz się na kolejny.</p>
+      <p style="font-size:13px; color:var(--ink-soft); margin-top:24px; margin-bottom:0; padding-top:18px; border-top:1px solid var(--line);">
+        Produkt ma charakter kolekcjonerski i numizmatyczny. Kolekcja nie jest wydawana, sygnowana ani
+        rekomendowana przez żaden kościół, związek wyznaniowy ani organizację religijną.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="spec-band">
+  <div class="spec-bg"><img src="images/amber-esklep1.jpg" alt=""></div>
+  <div class="wrap spec-grid">
+    <div class="spec-coin-visual">
+      <div class="big-coin"><img src="images/rewers.png" alt="Rewers numizmatu — Mojżesz z tablicami Dekalogu, złoto próby 999,9, 1/200 uncji"></div>
+    </div>
+    <div>
+      <div class="eyebrow">Specyfikacja techniczna</div>
+      <h2 style="margin-bottom:28px;">Rzemiosło mennicze najwyższej próby</h2>
+      <table class="spec-table">
+        <tr><td>Metal</td><td>Złoto</td></tr>
+        <tr><td>Czystość kruszcu</td><td>999,9</td></tr>
+        <tr><td>Waga</td><td>1/200 uncji (0,155 g)</td></tr>
+        <tr><td>Wymiary</td><td>30 × 42 mm</td></tr>
+        <tr><td>Forma</td><td>Numizmat w formie sztabki</td></tr>
+        <tr><td>Wykończenie</td><td>Lustrzana, kapsułowana</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
 <section class="reviews-band tight">
   <div class="wrap">
     <div class="section-head center" style="margin-bottom:36px;">
@@ -519,50 +564,6 @@
       </div>
     </div>
     <p style="text-align:center; font-size:11.5px; color:var(--ink-soft); opacity:.7; margin-top:28px;">Przykładowe opinie na potrzeby strony demonstracyjnej — przed uruchomieniem kampanii zastąp realnymi recenzjami klientów.</p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap about-grid">
-    <div class="about-visual">
-      <img src="images/10przykazan-esklep1.jpg" alt="Otwarta szkatuła kolekcjonerska z dziesięcioma numizmatami serii Dziesięć Przykazań, certyfikatem autentyczności i kapsułami ochronnymi">
-      <div class="overlay-quote"><p>„Dziesięć słów, które od tysięcy lat kształtują ludzkie sumienie.”</p></div>
-    </div>
-    <div class="about-copy">
-      <div class="eyebrow">O kolekcji</div>
-      <h2 style="margin-bottom:22px;">Jeden z najstarszych tekstów w historii, zamknięty w złocie</h2>
-      <p>Dekalog to jeden z najstarszych i najbardziej rozpoznawalnych tekstów w historii cywilizacji. Kolekcja
-      „Dziesięć Przykazań” przenosi ten motyw na język współczesnego numizmatu — dziesięć osobnych medali,
-      każdy z osobnym motywem graficznym, wybity w czystym złocie.</p>
-      <p>Projekt graficzny każdego egzemplarza łączy klasyczną formę tablicy z precyzją rytownictwa mennicznego.
-      To kolekcja, która buduje się miesiąc po miesiącu — a każdy element można oglądać, dotykać i ocenić osobno,
-      zanim zdecydujesz się na kolejny.</p>
-      <p style="font-size:13px; color:var(--ink-soft); margin-top:24px; margin-bottom:0; padding-top:18px; border-top:1px solid var(--line);">
-        Produkt ma charakter kolekcjonerski i numizmatyczny. Kolekcja nie jest wydawana, sygnowana ani
-        rekomendowana przez żaden kościół, związek wyznaniowy ani organizację religijną.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="spec-band">
-  <div class="spec-bg"><img src="images/amber-esklep1.jpg" alt=""></div>
-  <div class="wrap spec-grid">
-    <div class="spec-coin-visual">
-      <div class="big-coin"><img src="images/rewers.png" alt="Rewers numizmatu — Mojżesz z tablicami Dekalogu, złoto próby 999,9, 1/200 uncji"></div>
-    </div>
-    <div>
-      <div class="eyebrow">Specyfikacja techniczna</div>
-      <h2 style="margin-bottom:28px;">Rzemiosło mennicze najwyższej próby</h2>
-      <table class="spec-table">
-        <tr><td>Metal</td><td>Złoto</td></tr>
-        <tr><td>Czystość kruszcu</td><td>999,9</td></tr>
-        <tr><td>Waga</td><td>1/200 uncji (0,155 g)</td></tr>
-        <tr><td>Wymiary</td><td>30 × 42 mm</td></tr>
-        <tr><td>Forma</td><td>Numizmat w formie sztabki</td></tr>
-        <tr><td>Wykończenie</td><td>Lustrzana, kapsułowana</td></tr>
-      </table>
-    </div>
   </div>
 </section>
 
