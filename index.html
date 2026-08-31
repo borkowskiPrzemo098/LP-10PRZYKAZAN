@@ -94,13 +94,10 @@
   }
   .hero-bg{
     position:absolute; inset:0; z-index:0;
-  }
-  .hero-bg img{width:100%; height:100%; object-fit:cover; object-position:center 30%;}
-  .hero-bg::after{
-    content:""; position:absolute; inset:0;
     background:
-      radial-gradient(ellipse 900px 640px at 74% 10%, rgba(228,194,102,.35), transparent 60%),
-      linear-gradient(100deg, var(--ivory) 0%, rgba(250,243,226,.94) 34%, rgba(250,243,226,.75) 56%, rgba(250,243,226,.55) 100%);
+      radial-gradient(ellipse 900px 640px at 74% 10%, rgba(228,194,102,.4), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 8% 90%, rgba(224,203,150,.35), transparent 62%),
+      var(--ivory);
   }
   .hero .wrap{position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; padding-top:76px; padding-bottom:64px;}
   .hero h1{font-size:clamp(2.5rem,4.6vw,3.9rem); line-height:1.06; margin-bottom:22px;}
@@ -388,7 +385,7 @@
 -->
 
 <div class="topbar">
-  <div class="wrap"><b>Limitowana edycja</b> &nbsp;•&nbsp; Złoto próby 999,9 &nbsp;•&nbsp; Wyłączny polski dystrybutor: AZ Aurum</div>
+  <div class="wrap"><b>Limitowana edycja</b> &nbsp;•&nbsp; Złoto próby 999,9 &nbsp;•&nbsp; Sprzedawca: AZ Aurum</div>
 </div>
 
 <header class="site">
@@ -403,7 +400,7 @@
 </header>
 
 <section class="hero">
-  <div class="hero-bg"><img src="images/TLO2.jpg" alt=""></div>
+  <div class="hero-bg"></div>
   <div class="wrap">
     <div>
       <div class="eyebrow">Kolekcja numizmatyczna</div>
@@ -414,6 +411,11 @@
         <a href="#zamow" class="btn">Zamów pierwszy numizmat</a>
         <div class="price-tag">Pierwszy egzemplarz<b>299 zł</b></div>
       </div>
+      <p style="font-size:12.5px; color:var(--ink-soft); max-width:480px; margin-bottom:20px;">
+        Pełna kolekcja to 10 numizmatów po 299 zł (łącznie 2990 zł) + 14,99 zł wysyłki za każdy egzemplarz.
+        Wysyłkę kolejnego numizmatu możesz anulować w dowolnym momencie telefonicznie lub mailowo — bez opłat
+        i bez podania przyczyny.
+      </p>
       <div class="trust-mini">
         <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Certyfikat autentyczności</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>14 dni na zwrot</span>
@@ -462,10 +464,10 @@
     </div>
     <div class="about-copy">
       <div class="eyebrow">O kolekcji</div>
-      <h2 style="margin-bottom:22px;">Najstarszy kodeks ludzkości, zamknięty w złocie</h2>
-      <p>Dekalog to fundament etyki trzech wielkich religii i jeden z najważniejszych tekstów w historii cywilizacji.
-      Kolekcja „Dziesięć Przykazań” przenosi tę odwieczną treść na język współczesnego numizmatu — dziesięć
-      osobnych medali, każdy poświęcony jednemu przykazaniu, wybity w czystym złocie.</p>
+      <h2 style="margin-bottom:22px;">Jeden z najstarszych tekstów w historii, zamknięty w złocie</h2>
+      <p>Dekalog to jeden z najstarszych i najbardziej rozpoznawalnych tekstów w historii cywilizacji. Kolekcja
+      „Dziesięć Przykazań” przenosi ten motyw na język współczesnego numizmatu — dziesięć osobnych medali,
+      każdy z osobnym motywem graficznym, wybity w czystym złocie.</p>
       <p>Projekt graficzny każdego egzemplarza łączy klasyczną formę tablicy z precyzją rytownictwa mennicznego.
       To kolekcja, która buduje się miesiąc po miesiącu — a każdy element można oglądać, dotykać i ocenić osobno,
       zanim zdecydujesz się na kolejny.</p>
@@ -476,6 +478,10 @@
         <li><span class="num">IV</span><span class="txt">Czcij ojca swego i matkę swoją</span></li>
         <li><span class="num">V</span><span class="txt">Nie zabijaj</span></li>
       </ul>
+      <p style="font-size:13px; color:var(--ink-soft); margin-top:24px; margin-bottom:0; padding-top:18px; border-top:1px solid var(--line);">
+        Produkt ma charakter kolekcjonerski i numizmatyczny. Kolekcja nie jest wydawana, sygnowana ani
+        rekomendowana przez żaden kościół, związek wyznaniowy ani organizację religijną.
+      </p>
     </div>
   </div>
 </section>
@@ -544,7 +550,8 @@
       <div class="step">
         <div class="step-n">2</div>
         <h4>Co miesiąc kolejny</h4>
-        <p>Co miesiąc otrzymujesz następny numizmat z serii, zawsze w tej samej cenie 299 zł.</p>
+        <p>Co miesiąc otrzymujesz następny numizmat z serii w tej samej cenie 299 zł. Wysyłkę możesz zatrzymać
+        w każdej chwili jednym telefonem lub mailem.</p>
       </div>
       <div class="step">
         <div class="step-n">3</div>
@@ -588,7 +595,7 @@
       <p>Pierwszy numizmat z serii — złoto próby 999,9, certyfikat, kapsuła i pudełko kolekcjonerskie w cenie.</p>
       <div class="price-block">
         <span class="now">299 zł</span>
-        <span class="unit">+ 14,99 zł wysyłki i pakowania</span>
+        <span class="unit">+ 14,99 zł wysyłki i pakowania · pełna seria 10 numizmatów: 2990 zł + wysyłka</span>
       </div>
     </div>
 
@@ -644,10 +651,17 @@
 
         <label class="form-consent">
           <input type="checkbox" required>
-          Wyrażam zgodę na przetwarzanie moich danych osobowych w celu realizacji zamówienia kolekcji „Dziesięć Przykazań” zgodnie z polityką prywatności AZ Aurum. *
+          Wyrażam zgodę na przetwarzanie moich danych osobowych w celu realizacji zamówienia, zgodnie z
+          <a href="polityka-prywatnosci.html" target="_blank" rel="noopener" style="color:var(--gold-deep); font-weight:600;">Polityką prywatności</a>
+          i <a href="regulamin.html" target="_blank" rel="noopener" style="color:var(--gold-deep); font-weight:600;">Regulaminem</a> sklepu. *
+        </label>
+        <label class="form-consent">
+          <input type="checkbox">
+          Chcę otrzymywać newsletter i informacje o nowych kolekcjach AZ Aurum drogą mailową (opcjonalnie).
         </label>
 
         <button type="submit" class="btn">Zamawiam pierwszy numizmat — 299 zł</button>
+        <p class="form-note">Kolejne numizmaty wysyłamy co miesiąc w cenie 299 zł do momentu Twojej rezygnacji — możesz ją zgłosić w każdej chwili telefonicznie lub mailowo, bez opłat.</p>
         <p class="form-note">Wolisz złożyć zamówienie przez telefon? Zadzwoń: <a href="tel:784622333">784 622 333</a></p>
       </form>
 
@@ -687,8 +701,9 @@
     <div class="foot-grid">
       <div>
         <div class="foot-logo"><img src="images/logoAZ-mailing.png" alt="AZ Aurum"></div>
-        <p>AZ Aurum — wyłączny polski dystrybutor kolekcji „Dziesięć Przykazań”. Numizmaty ze złota próby 999,9
-        z certyfikatem autentyczności.</p>
+        <p>AZ Aurum — Numizmatyka Adam Zieliński, [adres siedziby], NIP: [NIP do uzupełnienia]. Sprzedawca
+        numizmatów kolekcjonerskich ze złota próby 999,9 z certyfikatem autentyczności. Produkt kolekcjonerski,
+        niezwiązany z żadną organizacją religijną.</p>
       </div>
       <div class="foot-col">
         <h5>Kontakt</h5>
@@ -697,15 +712,15 @@
         <a href="mailto:sklep@azaurum-sklep.pl">sklep@azaurum-sklep.pl</a>
       </div>
       <div class="foot-col">
-        <h5>Kolekcja</h5>
+        <h5>Informacje prawne</h5>
+        <a href="regulamin.html">Regulamin sklepu</a>
+        <a href="polityka-prywatnosci.html">Polityka prywatności</a>
         <a href="#zamow">Zamów pierwszy numizmat</a>
-        <span>Złoto próby 999,9</span>
-        <span>14 dni gwarancji</span>
       </div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 AZ Aurum — Numizmatyka Adam Zieliński. Wszelkie prawa zastrzeżone.</span>
-      <span>Strona demonstracyjna / testowa.</span>
+      <span>Strona demonstracyjna / testowa — dane sprzedawcy do uzupełnienia przed uruchomieniem kampanii.</span>
     </div>
   </div>
 </footer>
