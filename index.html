@@ -151,6 +151,16 @@
   .coin-cell:nth-child(9) .coin{background-position:75% 100%;}
   .coin-cell:nth-child(10) .coin{background-position:100% 100%;}
 
+  /* ============ OPINIE ============ */
+  .reviews-band{background:var(--ivory); border-bottom:1px solid var(--line);}
+  .reviews-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .review-card{padding:0;}
+  .review-stars{display:flex; gap:3px; margin-bottom:12px;}
+  .review-stars svg{width:15px; height:15px; fill:var(--gold); stroke:none;}
+  .review-quote{font-size:14.5px; color:var(--ink-soft); line-height:1.6; margin-bottom:14px;}
+  .review-author{font-size:13px; font-weight:600; color:var(--ink);}
+  .review-author span{display:block; font-weight:400; color:var(--ink-soft); font-size:12px; margin-top:2px;}
+
   /* ============ O KOLEKCJI ============ */
   .about-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:64px; align-items:start;}
   .about-visual{
@@ -183,11 +193,8 @@
   .spec-table td:first-child{color:var(--ink-soft); width:44%;}
   .spec-table td:last-child{color:var(--ink); font-weight:600; letter-spacing:.02em; text-align:right;}
   .spec-coin-visual{display:flex; align-items:center; justify-content:center;}
-  .big-coin{
-    width:240px; aspect-ratio:3/4; position:relative;
-    background-image:url('images/sequence1.png');
-    background-size:500% 200%; background-position:0% 0%;
-  }
+  .big-coin{width:260px;}
+  .big-coin img{width:100%; height:auto; display:block;}
 
   /* ============ BENEFITY ============ */
   .benefits-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line);}
@@ -329,13 +336,28 @@
 
   /* ============ FOOTER ============ */
   footer{background:var(--ivory-2); border-top:1px solid var(--line); padding:56px 0 26px;}
-  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:40px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:0;}
   .foot-logo img{height:34px; margin-bottom:16px;}
   .foot-grid p{color:var(--ink-soft); font-size:14px; max-width:340px;}
   .foot-col h5{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:16px; font-family:'Work Sans',sans-serif; font-weight:700;}
   .foot-col a, .foot-col span{display:block; color:var(--ink-soft); text-decoration:none; font-size:14.5px; margin-bottom:10px;}
   .foot-col a:hover{color:var(--gold-deep);}
   .foot-bottom{border-top:1px solid var(--line); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12.5px; color:var(--ink-soft);}
+
+  .payment-row{
+    display:flex; flex-wrap:wrap; gap:10px; margin-top:34px; padding-top:26px;
+    border-top:1px solid var(--line);
+  }
+  .payment-badge{
+    display:inline-flex; align-items:center; gap:6px;
+    background:var(--ivory); border:1px solid var(--line-light); color:var(--ink-soft);
+    font-size:11.5px; font-weight:600; letter-spacing:.02em;
+    padding:8px 14px; border-radius:20px;
+  }
+  .distributor-note{
+    margin-top:26px; padding-top:22px; border-top:1px solid var(--line);
+    font-size:11.5px; line-height:1.7; color:var(--ink-soft); opacity:.85;
+  }
 
   @media (max-width:980px){
     .hero .wrap{grid-template-columns:1fr; text-align:left; min-height:0;}
@@ -345,6 +367,7 @@
     .about-grid, .spec-grid, .terms-band .wrap{grid-template-columns:1fr; gap:40px;}
     .about-visual{aspect-ratio:16/9;}
     .benefits-grid{grid-template-columns:1fr;}
+    .reviews-grid{grid-template-columns:1fr; gap:32px;}
     .foot-grid{grid-template-columns:1fr; gap:30px;}
     .coins-grid{grid-template-columns:repeat(5,1fr);}
     .steps{grid-template-columns:repeat(2,1fr); row-gap:36px;}
@@ -454,6 +477,51 @@
   </div>
 </section>
 
+<section class="reviews-band tight">
+  <div class="wrap">
+    <div class="section-head center" style="margin-bottom:36px;">
+      <div class="eyebrow" style="justify-content:center;">Opinie klientów</div>
+      <h2 style="font-size:clamp(1.6rem,2.6vw,2.1rem);">Zaufali nam kolekcjonerzy w całej Polsce</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+        </div>
+        <p class="review-quote">„Wykonanie numizmatu przerosło moje oczekiwania — waga, wykończenie, certyfikat w komplecie. Czekam na kolejny egzemplarz.”</p>
+        <div class="review-author">Krzysztof M.<span>Kolekcjoner, Kraków</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+        </div>
+        <p class="review-quote">„Zamówienie i dostawa przebiegły bez problemu, obsługa telefoniczna bardzo pomocna przy pytaniach o kolejne raty kolekcji.”</p>
+        <div class="review-author">Anna W.<span>Klientka, Wrocław</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
+        </div>
+        <p class="review-quote">„Szkatuła kolekcjonerska prezentuje się elegancko, świetny prezent i zaczątek własnej kolekcji numizmatycznej.”</p>
+        <div class="review-author">Piotr S.<span>Kolekcjoner, Gdańsk</span></div>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:11.5px; color:var(--ink-soft); opacity:.7; margin-top:28px;">Przykładowe opinie na potrzeby strony demonstracyjnej — przed uruchomieniem kampanii zastąp realnymi recenzjami klientów.</p>
+  </div>
+</section>
+
 <section>
   <div class="wrap about-grid">
     <div class="about-visual">
@@ -481,7 +549,7 @@
   <div class="spec-bg"><img src="images/amber-esklep1.jpg" alt=""></div>
   <div class="wrap spec-grid">
     <div class="spec-coin-visual">
-      <div class="big-coin"></div>
+      <div class="big-coin"><img src="images/rewers.png" alt="Rewers numizmatu — Mojżesz z tablicami Dekalogu, złoto próby 999,9, 1/200 uncji"></div>
     </div>
     <div>
       <div class="eyebrow">Specyfikacja techniczna</div>
@@ -719,31 +787,43 @@
 </script>
 
 <footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="foot-logo"><img src="images/logoAZ-gr.png" alt="AZ Aurum — Numizmatyka Adam Zieliński" style="width:170px; height:auto; background:#fff; border-radius:8px; padding:10px; margin-bottom:14px;"></div>
+      <span>Biuro Obsługi Klienta</span>
+      <span>Tel: 784 622 333 (pon–pt, 9:00–17:00)</span>
+      <span>Email: sklep@azaurum-sklep.pl</span>
+    </div>
+    <div class="foot-col">
+      <h5>Nawigacja</h5>
+      <a href="#top">AZ AURUM</a>
+      <a href="regulamin.html">Ogólne Warunki</a>
+      <a href="#zamow">Kontakt</a>
+      <a href="polityka-prywatnosci.html">Polityka prywatności</a>
+      <a href="regulamin.html">Zwroty</a>
+    </div>
+    <div class="foot-col">
+      <h5>Dostawa</h5>
+      <span style="max-width:240px;">Koszty pakowania i wysyłki to 14,99 zł. Zamówienie zostanie dostarczone do domu pod wskazany adres.</span>
+    </div>
+  </div>
+
+  <div class="wrap payment-row">
+    <div class="payment-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="10.5" width="14" height="9.5" rx="1.6" stroke="currentColor" stroke-width="1.5"/><path d="M8 10.5V8a4 4 0 018 0v2.5" stroke="currentColor" stroke-width="1.5"/></svg>Bezpieczne połączenie SSL</div>
+    <div class="payment-badge">Szybki przelew</div>
+    <div class="payment-badge">BLIK</div>
+    <div class="payment-badge">Visa · Mastercard</div>
+    <div class="payment-badge">Apple Pay · Google Pay</div>
+    <div class="payment-badge">Płatność za pobraniem</div>
+  </div>
+
   <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-logo"><img src="images/logoAZ-mailing.png" alt="AZ Aurum"></div>
-        <p>AZ Aurum — Numizmatyka Adam Zieliński, [adres siedziby], NIP: [NIP do uzupełnienia]. Wyłączny polski
-        dystrybutor kolekcji „Dziesięć Przykazań”, numizmatów ze złota próby 999,9 z certyfikatem autentyczności.
-        Produkt kolekcjonerski, niezwiązany z żadną organizacją religijną.</p>
-      </div>
-      <div class="foot-col">
-        <h5>Kontakt</h5>
-        <a href="tel:784622333">784 622 333</a>
-        <span>pon–pt 9:00–17:00</span>
-        <a href="mailto:sklep@azaurum-sklep.pl">sklep@azaurum-sklep.pl</a>
-      </div>
-      <div class="foot-col">
-        <h5>Informacje prawne</h5>
-        <a href="regulamin.html">Regulamin sklepu</a>
-        <a href="polityka-prywatnosci.html">Polityka prywatności</a>
-        <a href="#zamow">Zamów pierwszy numizmat</a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 AZ Aurum — Numizmatyka Adam Zieliński. Wszelkie prawa zastrzeżone.</span>
-      <span>Strona demonstracyjna / testowa — dane sprzedawcy do uzupełnienia przed uruchomieniem kampanii.</span>
-    </div>
+    <div class="distributor-note">Oficjalny przedstawiciel i dystrybutor tak znanych mennic i emitentów, jak: Francuska Mennica Państwowa, Kanadyjska Mennica Królewska, Australijska Mennica Królewska, Australijska Mennica Perth, Mennica Ziemi Świętej, Hiszpańska Mennica Królewska, NZ Post – Bank Centralny Nowej Zelandii, Kompania Wschodnioindyjska (The East India Company), MDM Mennica Niemiecka, Mennica Litewska, Ai Mint, The Commonwealth Mint, The Tower Mint, Brytyjska Mennica Królewska.</div>
+  </div>
+
+  <div class="wrap foot-bottom">
+    <span>© 2026 AZ Aurum — Numizmatyka Adam Zieliński. Wszelkie prawa zastrzeżone. Produkt kolekcjonerski, niezwiązany z żadną organizacją religijną.</span>
+    <span>Strona demonstracyjna / testowa — dane sprzedawcy do uzupełnienia przed uruchomieniem kampanii.</span>
   </div>
 </footer>
 
