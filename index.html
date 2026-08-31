@@ -91,6 +91,7 @@
   .hero{
     position:relative; overflow:hidden;
     background:var(--ivory);
+    padding:0;
   }
   .hero-bg{
     position:absolute; inset:0; z-index:0;
@@ -99,7 +100,7 @@
       radial-gradient(ellipse 700px 500px at 8% 90%, rgba(224,203,150,.35), transparent 62%),
       var(--ivory);
   }
-  .hero .wrap{position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:stretch; padding-top:52px; padding-bottom:52px;}
+  .hero .wrap{position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:stretch; padding-top:28px; padding-bottom:28px;}
   .hero h1{font-size:clamp(2.5rem,4.6vw,3.9rem); line-height:1.06; margin-bottom:22px;}
   .hero h1 em{font-style:italic; color:var(--sacred); font-family:'Work Sans',sans-serif; font-weight:600;}
   .hero p.lead{font-size:18px; color:var(--ink-soft); max-width:480px; margin-bottom:32px;}
@@ -122,12 +123,6 @@
     display:flex; align-items:center; justify-content:center;
   }
   .hero-photo-frame img{height:100%; width:100%; object-fit:cover; object-position:center; display:block;}
-  .badge-limited{
-    position:absolute; top:6px; right:6px; z-index:2; background:var(--sacred); color:var(--ivory);
-    font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:9px 16px;
-    border-radius:2px; box-shadow:0 10px 20px -8px rgba(60,40,10,.5);
-    transform:rotate(3deg);
-  }
 
   section{padding:96px 0;}
   section.tight{padding:72px 0;}
@@ -431,7 +426,6 @@
     <div class="tablet-stage">
       <div class="halo"></div>
       <div class="hero-photo-frame">
-        <div class="badge-limited">1 / 10</div>
         <img src="images/baner-3-png.png" alt="Kolekcja numizmatów Dziesięć Przykazań — złote medale ze scenami biblijnymi, cena 299 zł, pudełko kolekcjonerskie">
       </div>
     </div>
