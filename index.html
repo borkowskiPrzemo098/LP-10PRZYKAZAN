@@ -102,8 +102,11 @@
   }
   .hero .wrap{position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:stretch; padding-top:28px; padding-bottom:28px; min-height:480px;}
   .hero-copy{display:flex; flex-direction:column; justify-content:center;}
-  .hero h1{font-size:clamp(2.5rem,4.6vw,3.9rem); line-height:1.06; margin-bottom:22px;}
-  .hero h1 em{font-style:italic; color:var(--sacred); font-family:'Work Sans',sans-serif; font-weight:600;}
+  .hero h1{font-size:clamp(2.6rem,4.8vw,4.2rem); line-height:1.02; margin-bottom:18px; text-transform:uppercase; letter-spacing:.015em;}
+  .hero h1 em{
+    display:block; font-style:italic; color:var(--ink-soft); font-family:'Work Sans',sans-serif; font-weight:500;
+    font-size:clamp(1rem,1.6vw,1.25rem); text-transform:none; letter-spacing:0; margin-top:10px;
+  }
   .hero p.lead{font-size:18px; color:var(--ink-soft); max-width:480px; margin-bottom:32px;}
   .hero .cta-row{display:flex; align-items:center; gap:22px; flex-wrap:wrap; margin-bottom:20px;}
   .hero .price-tag{font-size:13px; color:var(--ink-soft);}
@@ -418,7 +421,7 @@
   <div class="wrap">
     <div class="hero-copy">
       <div class="eyebrow">Kolekcja numizmatyczna</div>
-      <h1>Dziesięć Przykazań<br><em>ściśle limitowana kolekcja.</em></h1>
+      <h1>Dziesięć Przykazań<em>Ściśle limitowana kolekcja</em></h1>
       <p class="lead">Ściśle limitowana kolekcja złotych numizmatów wybitych w czystym złocie próby 999.
       Złote numizmaty kolekcjonerskie w kształcie sztabki.</p>
       <div class="cta-row">
