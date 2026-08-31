@@ -98,7 +98,7 @@
       radial-gradient(ellipse 700px 500px at 8% 90%, rgba(224,203,150,.35), transparent 62%),
       var(--ivory);
   }
-  .hero .wrap{position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; padding-top:76px; padding-bottom:64px;}
+  .hero .wrap{position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:stretch; padding-top:76px; padding-bottom:64px; min-height:560px;}
   .hero h1{font-size:clamp(2.5rem,4.6vw,3.9rem); line-height:1.06; margin-bottom:22px;}
   .hero h1 em{font-style:italic; color:var(--sacred); font-family:'Work Sans',sans-serif; font-weight:600;}
   .hero p.lead{font-size:18px; color:var(--ink-soft); max-width:480px; margin-bottom:32px;}
@@ -110,21 +110,19 @@
   .trust-mini svg{width:14px; height:14px; stroke:var(--gold-deep);}
 
   /* product visual */
-  .tablet-stage{position:relative; display:flex; align-items:center; justify-content:center; padding:40px 0 0;}
+  .tablet-stage{position:relative; display:flex; align-items:center; justify-content:center; height:100%;}
   .halo{
     position:absolute; width:520px; height:520px; border-radius:50%;
     background:radial-gradient(circle, rgba(228,194,102,.55) 0%, rgba(228,194,102,.14) 45%, transparent 70%);
     z-index:0;
   }
   .hero-photo-frame{
-    position:relative; z-index:1; width:100%; max-width:400px;
-    background:linear-gradient(160deg, #fffaf0 0%, var(--ivory-2) 100%);
-    border-radius:10px; padding:14px;
-    box-shadow:0 40px 70px -30px rgba(60,40,10,.35), inset 0 0 0 1px var(--line-light);
+    position:relative; z-index:1; height:100%; width:100%;
+    display:flex; align-items:center; justify-content:center;
   }
-  .hero-photo-frame img{width:100%; height:auto; border-radius:4px; display:block;}
+  .hero-photo-frame img{height:100%; width:auto; max-width:100%; object-fit:contain; display:block;}
   .badge-limited{
-    position:absolute; top:-14px; right:4px; z-index:2; background:var(--sacred); color:var(--ivory);
+    position:absolute; top:6px; right:6px; z-index:2; background:var(--sacred); color:var(--ivory);
     font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:9px 16px;
     border-radius:2px; box-shadow:0 10px 20px -8px rgba(60,40,10,.5);
     transform:rotate(3deg);
@@ -141,15 +139,11 @@
   .collection-band{background:var(--parchment); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .coins-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
   .coin{
-    aspect-ratio:3/4; border-radius:6px; position:relative;
+    aspect-ratio:3/4; position:relative;
     background-image:url('images/sequence1.png');
     background-size:500% 200%;
-    box-shadow:0 14px 24px -14px rgba(60,40,10,.5), inset 0 0 0 1px rgba(169,121,31,.35);
   }
   .coin-label{text-align:center; margin-top:12px; font-size:12px; color:var(--ink-soft); letter-spacing:.03em;}
-  .coin-cell.locked .coin{opacity:.55; filter:saturate(.6);}
-  .coin-cell.locked .coin-label{opacity:.6;}
-  .coin-cell.active .coin{box-shadow:0 0 0 3px var(--sacred), 0 14px 24px -14px rgba(60,40,10,.5);}
   .coin-cell:nth-child(1) .coin{background-position:0% 0%;}
   .coin-cell:nth-child(2) .coin{background-position:25% 0%;}
   .coin-cell:nth-child(3) .coin{background-position:50% 0%;}
@@ -209,15 +203,6 @@
   }
 
   /* ============ BENEFITY ============ */
-  .benefits-photo{
-    max-width:760px; margin:0 auto 48px; border-radius:8px; overflow:hidden;
-    border:1px solid var(--line); box-shadow:0 30px 60px -34px rgba(60,40,10,.35); background:var(--parchment);
-  }
-  .benefits-photo img{width:100%; height:auto; display:block;}
-  .benefits-photo figcaption{
-    text-align:center; font-size:13px; color:var(--ink-soft); padding:14px 20px; background:var(--ivory-2);
-    border-top:1px solid var(--line);
-  }
   .benefits-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line);}
   .benefit-card{background:var(--ivory); padding:44px 36px;}
   .benefit-card .icon{width:46px; height:46px; margin-bottom:22px;}
@@ -367,8 +352,10 @@
   .foot-bottom{border-top:1px solid var(--line); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12.5px; color:var(--ink-soft);}
 
   @media (max-width:980px){
-    .hero .wrap{grid-template-columns:1fr; text-align:left;}
-    .tablet-stage{padding-top:10px;}
+    .hero .wrap{grid-template-columns:1fr; text-align:left; min-height:0;}
+    .tablet-stage{padding-top:10px; height:auto;}
+    .hero-photo-frame{height:auto;}
+    .hero-photo-frame img{height:auto; width:100%; max-width:360px;}
     .about-grid, .spec-grid, .terms-band .wrap{grid-template-columns:1fr; gap:40px;}
     .about-visual{aspect-ratio:16/9;}
     .benefits-grid{grid-template-columns:1fr;}
@@ -384,9 +371,7 @@
     .coin-label{font-size:10px;}
     .head-contact{display:none;}
     .hero .wrap{padding-top:52px;}
-    .tablet{max-width:280px;}
-    .tablet .roman{font-size:86px;}
-    .halo, .rays{width:340px; height:340px;}
+    .halo{width:340px; height:340px;}
     .steps{grid-template-columns:1fr;}
     .terms-band .wrap{text-align:center;}
     .guarantee-seal{width:190px; height:190px;}
@@ -470,16 +455,16 @@
       <p>Każdego miesiąca odkrywasz kolejny numizmat — aż do skompletowania pełnej serii dziesięciu przykazań.</p>
     </div>
     <div class="coins-grid">
-      <div class="coin-cell active"><div class="coin"></div><div class="coin-label">Miesiąc 1</div></div>
-      <div class="coin-cell locked"><div class="coin"></div><div class="coin-label">Miesiąc 2</div></div>
-      <div class="coin-cell locked"><div class="coin"></div><div class="coin-label">Miesiąc 3</div></div>
-      <div class="coin-cell locked"><div class="coin"></div><div class="coin-label">Miesiąc 4</div></div>
-      <div class="coin-cell locked"><div class="coin"></div><div class="coin-label">Miesiąc 5</div></div>
-      <div class="coin-cell locked"><div class="coin"></div><div class="coin-label">Miesiąc 6</div></div>
-      <div class="coin-cell locked"><div class="coin"></div><div class="coin-label">Miesiąc 7</div></div>
-      <div class="coin-cell locked"><div class="coin"></div><div class="coin-label">Miesiąc 8</div></div>
-      <div class="coin-cell locked"><div class="coin"></div><div class="coin-label">Miesiąc 9</div></div>
-      <div class="coin-cell locked"><div class="coin"></div><div class="coin-label">Miesiąc 10</div></div>
+      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Miesiąc 1</div></div>
+      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Miesiąc 2</div></div>
+      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Miesiąc 3</div></div>
+      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Miesiąc 4</div></div>
+      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Miesiąc 5</div></div>
+      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Miesiąc 6</div></div>
+      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Miesiąc 7</div></div>
+      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Miesiąc 8</div></div>
+      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Miesiąc 9</div></div>
+      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Miesiąc 10</div></div>
     </div>
   </div>
 </section>
@@ -487,7 +472,7 @@
 <section>
   <div class="wrap about-grid">
     <div class="about-visual">
-      <img src="images/amber-esklep2.jpg" alt="Makrofotografia grawerunku menniczego w złocie">
+      <img src="images/10przykazan-esklep1.jpg" alt="Otwarta szkatuła kolekcjonerska z dziesięcioma numizmatami serii Dziesięć Przykazań, certyfikatem autentyczności i kapsułami ochronnymi">
       <div class="overlay-quote"><p>„Dziesięć słów, które od tysięcy lat kształtują ludzkie sumienie.”</p></div>
     </div>
     <div class="about-copy">
@@ -541,10 +526,6 @@
       <div class="eyebrow" style="justify-content:center;">Co otrzymujesz</div>
       <h2>Każdy numizmat trafia do Ciebie kompletny</h2>
     </div>
-    <figure class="benefits-photo">
-      <img src="images/10przykazan-esklep1.jpg" alt="Otwarta szkatuła kolekcjonerska z dziesięcioma numizmatami serii Dziesięć Przykazań, certyfikatem autentyczności i kapsułami ochronnymi">
-      <figcaption>Szkatuła kolekcjonerska na całą serię dziesięciu numizmatów, z certyfikatem i kapsułami ochronnymi w komplecie.</figcaption>
-    </figure>
   </div>
   <div class="wrap" style="padding:0;">
     <div class="benefits-grid">
