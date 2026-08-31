@@ -217,20 +217,13 @@
   .step p{font-size:14.5px; color:var(--ink-soft);}
 
   /* ============ WARUNKI / GWARANCJA ============ */
-  .terms-band .wrap{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  .terms-band .wrap{display:flex; justify-content:center;}
+  .terms-copy{max-width:680px; text-align:center;}
   .terms-copy h2{margin-bottom:20px;}
   .terms-copy p{color:var(--ink-soft); margin-bottom:16px;}
-  .terms-list{list-style:none; margin-top:24px; display:grid; gap:16px;}
+  .terms-list{list-style:none; margin-top:24px; display:inline-grid; gap:16px; text-align:left;}
   .terms-list li{display:flex; gap:14px; align-items:flex-start; font-size:15px; color:var(--ink-soft);}
   .terms-list svg{width:18px; height:18px; stroke:var(--gold-deep); flex:none; margin-top:2px;}
-  .guarantee-seal{
-    justify-self:center; width:230px; height:230px; border-radius:50%; border:1px solid var(--line-light);
-    display:flex; align-items:center; justify-content:center; position:relative; background:var(--ivory-2);
-  }
-  .guarantee-seal::before{content:""; position:absolute; inset:14px; border:1px dashed var(--gold-deep); border-radius:50%;}
-  .guarantee-seal .inner{text-align:center;}
-  .guarantee-seal .num{font-family:'Cormorant',serif; font-size:56px; color:var(--gold-deep); line-height:1;}
-  .guarantee-seal .lbl{font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); margin-top:8px;}
 
   /* ============ CTA FINAL / FORMULARZ ============ */
   .cta-final{
@@ -363,7 +356,7 @@
     .tablet-stage{padding-top:10px; height:auto;}
     .hero-photo-frame{height:auto;}
     .hero-photo-frame img{height:auto; width:100%; max-width:360px;}
-    .about-grid, .spec-grid, .terms-band .wrap{grid-template-columns:1fr; gap:40px;}
+    .about-grid, .spec-grid{grid-template-columns:1fr; gap:40px;}
     .about-visual{height:auto; min-height:280px;}
     .benefits-grid{grid-template-columns:1fr;}
     .reviews-grid{grid-template-columns:1fr; gap:32px;}
@@ -381,8 +374,6 @@
     .hero .wrap{padding-top:52px;}
     .halo{width:340px; height:340px;}
     .steps{grid-template-columns:1fr;}
-    .terms-band .wrap{text-align:center;}
-    .guarantee-seal{width:190px; height:190px;}
     .cta-row{flex-direction:column; align-items:flex-start !important;}
   }
 </style>
@@ -631,11 +622,8 @@
 
 <section class="terms-band">
   <div class="wrap">
-    <div class="guarantee-seal">
-      <div class="inner"><div class="num">14</div><div class="lbl">dni gwarancji</div></div>
-    </div>
     <div class="terms-copy">
-      <div class="eyebrow">Ważna informacja!</div>
+      <div class="eyebrow" style="justify-content:center;">Ważna informacja!</div>
       <h2>Zero ryzyka, pełna swoboda</h2>
       <p>Dokonując zakupu złotego numizmatu z Przykazaniem w cenie 299 zł jednocześnie rozpoczynam
       kolekcjonowanie złotych numizmatów z ekskluzywnej, limitowanej kolekcji „Dziesięć Przykazań”. Kolejne
