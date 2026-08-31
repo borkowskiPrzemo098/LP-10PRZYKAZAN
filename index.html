@@ -44,7 +44,8 @@
   .btn{
     display:inline-flex; align-items:center; gap:10px;
     background:linear-gradient(135deg,var(--gold-pale) 0%,var(--gold) 55%,var(--gold-deep) 100%);
-    color:#241705;
+    color:#fff;
+    text-shadow:0 1px 2px rgba(0,0,0,.35);
     font-family:'Work Sans',sans-serif;
     font-weight:700;
     letter-spacing:.06em;
@@ -98,7 +99,7 @@
       radial-gradient(ellipse 700px 500px at 8% 90%, rgba(224,203,150,.35), transparent 62%),
       var(--ivory);
   }
-  .hero .wrap{position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:stretch; padding-top:76px; padding-bottom:64px; min-height:560px;}
+  .hero .wrap{position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:stretch; padding-top:52px; padding-bottom:52px;}
   .hero h1{font-size:clamp(2.5rem,4.6vw,3.9rem); line-height:1.06; margin-bottom:22px;}
   .hero h1 em{font-style:italic; color:var(--sacred); font-family:'Work Sans',sans-serif; font-weight:600;}
   .hero p.lead{font-size:18px; color:var(--ink-soft); max-width:480px; margin-bottom:32px;}
@@ -120,7 +121,7 @@
     position:relative; z-index:1; height:100%; width:100%;
     display:flex; align-items:center; justify-content:center;
   }
-  .hero-photo-frame img{height:100%; width:auto; max-width:100%; object-fit:contain; display:block;}
+  .hero-photo-frame img{height:100%; width:100%; object-fit:cover; object-position:center; display:block;}
   .badge-limited{
     position:absolute; top:6px; right:6px; z-index:2; background:var(--sacred); color:var(--ivory);
     font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:9px 16px;
@@ -170,14 +171,6 @@
   .overlay-quote p{font-family:'Work Sans',sans-serif; font-style:italic; font-weight:500; font-size:19px; color:var(--gold-pale); line-height:1.4;}
   .about-copy p{color:var(--ink-soft); margin-bottom:18px; font-size:16.5px;}
   .about-copy p:first-of-type{font-size:19px; color:var(--ink);}
-  .commandment-list{list-style:none; margin-top:30px; display:grid; gap:0;}
-  .commandment-list li{
-    display:grid; grid-template-columns:44px 1fr; gap:16px; align-items:baseline;
-    padding:14px 0; border-bottom:1px solid var(--line);
-  }
-  .commandment-list li:first-child{border-top:1px solid var(--line);}
-  .commandment-list .num{font-family:'Cormorant SC',serif; color:var(--gold-deep); font-size:20px; font-weight:700;}
-  .commandment-list .txt{font-size:15px; color:var(--ink-soft);}
 
   /* ============ SPEC ============ */
   .spec-band{
@@ -196,10 +189,9 @@
   .spec-table td:last-child{color:var(--ink); font-weight:600; letter-spacing:.02em; text-align:right;}
   .spec-coin-visual{display:flex; align-items:center; justify-content:center;}
   .big-coin{
-    width:240px; aspect-ratio:3/4; border-radius:10px; position:relative;
+    width:240px; aspect-ratio:3/4; position:relative;
     background-image:url('images/sequence1.png');
     background-size:500% 200%; background-position:0% 0%;
-    box-shadow:0 30px 54px -22px rgba(60,40,10,.55), 0 0 0 10px var(--ivory-2), inset 0 0 0 1px rgba(169,121,31,.4);
   }
 
   /* ============ BENEFITY ============ */
@@ -262,10 +254,9 @@
   .order-summary h3{font-size:19px; margin-bottom:22px;}
   .summary-product{display:flex; gap:16px; align-items:center; margin-bottom:22px; padding-bottom:22px; border-bottom:1px solid var(--line);}
   .summary-coin{
-    flex:none; width:52px; height:68px; border-radius:5px; position:relative;
+    flex:none; width:52px; height:68px; position:relative;
     background-image:url('images/sequence1.png');
     background-size:500% 200%; background-position:0% 0%;
-    box-shadow:inset 0 0 0 1px rgba(169,121,31,.5);
   }
   .summary-product-name{font-size:15px; font-weight:600; color:var(--ink);}
   .summary-product-desc{font-size:12.5px; color:var(--ink-soft); margin-top:3px;}
@@ -484,13 +475,6 @@
       <p>Projekt graficzny każdego egzemplarza łączy klasyczną formę tablicy z precyzją rytownictwa mennicznego.
       To kolekcja, która buduje się miesiąc po miesiącu — a każdy element można oglądać, dotykać i ocenić osobno,
       zanim zdecydujesz się na kolejny.</p>
-      <ul class="commandment-list">
-        <li><span class="num">I</span><span class="txt">Nie będziesz miał bogów cudzych przede mną</span></li>
-        <li><span class="num">II</span><span class="txt">Nie będziesz brał imienia Pana Boga swego nadaremno</span></li>
-        <li><span class="num">III</span><span class="txt">Pamiętaj, abyś dzień święty święcił</span></li>
-        <li><span class="num">IV</span><span class="txt">Czcij ojca swego i matkę swoją</span></li>
-        <li><span class="num">V</span><span class="txt">Nie zabijaj</span></li>
-      </ul>
       <p style="font-size:13px; color:var(--ink-soft); margin-top:24px; margin-bottom:0; padding-top:18px; border-top:1px solid var(--line);">
         Produkt ma charakter kolekcjonerski i numizmatyczny. Kolekcja nie jest wydawana, sygnowana ani
         rekomendowana przez żaden kościół, związek wyznaniowy ani organizację religijną.
