@@ -47,7 +47,7 @@
 
   .btn{
     display:inline-flex; align-items:center; gap:10px;
-    background:linear-gradient(135deg,var(--gold-pale) 0%,var(--gold) 55%,var(--gold-deep) 100%);
+    background:linear-gradient(135deg,var(--sacred-2) 0%,var(--sacred) 55%,var(--sacred-deep) 100%);
     color:#fff;
     text-shadow:0 1px 2px rgba(0,0,0,.35);
     font-family:'Work Sans',sans-serif;
@@ -68,7 +68,7 @@
   .btn-outline{
     background:transparent; color:var(--ink); border:1px solid var(--line-light); box-shadow:none;
   }
-  .btn-outline:hover{border-color:var(--gold); color:var(--gold-deep); transform:translateY(-2px); box-shadow:none;}
+  .btn-outline:hover{border-color:var(--sacred); color:var(--sacred); transform:translateY(-2px); box-shadow:none;}
 
   .eyebrow{
     font-family:'Work Sans',sans-serif; font-size:11.5px; letter-spacing:.28em; text-transform:uppercase;
@@ -185,16 +185,12 @@
 
   /* ============ SPEC ============ */
   .spec-band{
-    position:relative; overflow:hidden;
-    background:linear-gradient(115deg, var(--amber) 0%, var(--amber-deep) 60%, var(--gold) 100%);
+    position:relative; border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden;
   }
   .spec-band .spec-bg{position:absolute; inset:0; z-index:0;}
-  .spec-band .spec-bg img{width:100%; height:100%; object-fit:cover; opacity:.14; mix-blend-mode:multiply;}
+  .spec-band .spec-bg img{width:100%; height:100%; object-fit:cover; opacity:.16;}
+  .spec-band .spec-bg::after{content:""; position:absolute; inset:0; background:linear-gradient(100deg, var(--ivory-2) 0%, rgba(242,230,200,.85) 55%, rgba(242,230,200,.65) 100%);}
   .spec-band .wrap{position:relative; z-index:1;}
-  .spec-band .eyebrow{color:var(--sacred-deep);}
-  .spec-band .eyebrow::before{background:var(--sacred-deep);}
-  .spec-band .spec-table td:first-child{color:#5c4318;}
-  .spec-band .spec-table tr{border-bottom:1px solid rgba(92,67,24,.25);}
   .spec-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
   .spec-table{width:100%; border-collapse:collapse;}
   .spec-table tr{border-bottom:1px solid var(--line);}
@@ -258,10 +254,16 @@
   }
 
   .order-summary{
-    background:var(--ivory-2); border:1px solid var(--line); border-radius:8px;
-    padding:32px 30px;
+    background:var(--ivory); border:2px solid var(--sacred); border-radius:8px;
+    padding:32px 30px 28px; position:relative;
+    box-shadow:0 24px 46px -28px rgba(79,21,24,.45);
   }
-  .order-summary h3{font-size:19px; margin-bottom:22px;}
+  .order-summary::before{
+    content:"TWOJE ZAMÓWIENIE"; position:absolute; top:-13px; left:28px;
+    background:var(--sacred); color:#fff; font-size:10.5px; font-weight:700; letter-spacing:.14em;
+    padding:5px 14px; border-radius:20px;
+  }
+  .order-summary h3{font-size:19px; margin-bottom:22px; color:var(--sacred-deep);}
   .summary-product{display:flex; gap:16px; align-items:center; margin-bottom:22px; padding-bottom:22px; border-bottom:1px solid var(--line);}
   .summary-coin{
     flex:none; width:52px; height:68px; position:relative;
@@ -279,7 +281,7 @@
   .summary-gifts b{color:var(--ink); font-weight:600;}
   .summary-total{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;}
   .summary-total .lbl{font-size:14px; color:var(--ink-soft);}
-  .summary-total .val{font-family:'Work Sans',sans-serif; font-size:26px; color:var(--gold-deep); font-weight:700; letter-spacing:0;}
+  .summary-total .val{font-family:'Work Sans',sans-serif; font-size:28px; color:var(--sacred); font-weight:700; letter-spacing:0;}
   .summary-foot-note{font-size:12px; color:var(--ink-soft); line-height:1.55;}
 
   .order-panel{
@@ -343,28 +345,28 @@
   }
 
   /* ============ FOOTER ============ */
-  footer{background:var(--ivory-2); border-top:1px solid var(--line); padding:56px 0 26px;}
+  footer{background:linear-gradient(170deg, var(--sacred-2) 0%, var(--sacred-deep) 100%); padding:56px 0 26px;}
   .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:0;}
   .foot-logo img{height:34px; margin-bottom:16px;}
-  .foot-grid p{color:var(--ink-soft); font-size:14px; max-width:340px;}
-  .foot-col h5{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:16px; font-family:'Work Sans',sans-serif; font-weight:700;}
-  .foot-col a, .foot-col span{display:block; color:var(--ink-soft); text-decoration:none; font-size:14.5px; margin-bottom:10px;}
-  .foot-col a:hover{color:var(--gold-deep);}
-  .foot-bottom{border-top:1px solid var(--line); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12.5px; color:var(--ink-soft);}
+  .foot-grid p{color:#d8c3ae; font-size:14px; max-width:340px;}
+  .foot-col h5{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin-bottom:16px; font-family:'Work Sans',sans-serif; font-weight:700;}
+  .foot-col a, .foot-col span{display:block; color:#d8c3ae; text-decoration:none; font-size:14.5px; margin-bottom:10px;}
+  .foot-col a:hover{color:var(--amber);}
+  .foot-bottom{border-top:1px solid rgba(232,200,118,.2); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12.5px; color:#c7ac93;}
 
   .payment-row{
     display:flex; flex-wrap:wrap; gap:10px; margin-top:34px; padding-top:26px;
-    border-top:1px solid var(--line);
+    border-top:1px solid rgba(232,200,118,.2);
   }
   .payment-badge{
     display:inline-flex; align-items:center; gap:6px;
-    background:var(--ivory); border:1px solid var(--line-light); color:var(--ink-soft);
+    background:rgba(0,0,0,.18); border:1px solid rgba(232,200,118,.35); color:#e8dcc8;
     font-size:11.5px; font-weight:600; letter-spacing:.02em;
     padding:8px 14px; border-radius:20px;
   }
   .distributor-note{
-    margin-top:26px; padding-top:22px; border-top:1px solid var(--line);
-    font-size:11.5px; line-height:1.7; color:var(--ink-soft); opacity:.85;
+    margin-top:26px; padding-top:22px; border-top:1px solid rgba(232,200,118,.2);
+    font-size:11.5px; line-height:1.7; color:#c7ac93; opacity:.9;
   }
 
   @media (max-width:980px){
