@@ -293,14 +293,6 @@
     box-shadow:0 30px 60px -30px rgba(60,40,10,.3);
     overflow:hidden;
   }
-  .order-panel-head{
-    padding:26px 40px; border-bottom:1px solid var(--line);
-    display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;
-    background:var(--ivory-2);
-  }
-  .order-panel-head h3{font-size:22px;}
-  .order-panel-head .mini-price{font-size:13px; color:var(--ink-soft); text-align:right;}
-  .order-panel-head .mini-price b{display:block; color:var(--gold-deep); font-family:'Work Sans',sans-serif; font-size:19px; font-weight:700; letter-spacing:0;}
   .order-form{padding:36px 40px 40px;}
   .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;}
   .form-row-3{grid-template-columns:1.3fr .8fr .8fr;}
@@ -312,6 +304,10 @@
   .form-field{display:flex; flex-direction:column; gap:7px;}
   .form-field.full{grid-column:1/-1;}
   .form-field label{font-size:12.5px; letter-spacing:.05em; color:var(--ink-soft); font-weight:600;}
+  .sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+    clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
   .form-field input, .form-field select, .form-field textarea{
     font-family:'Work Sans',sans-serif; font-size:15px; color:var(--ink);
     background:var(--ivory); border:1px solid var(--line-light); border-radius:3px;
@@ -349,7 +345,6 @@
   @media (max-width:640px){
     .form-row{grid-template-columns:1fr;}
     .order-form{padding:28px 22px 32px;}
-    .order-panel-head{padding:22px 22px;}
     .order-summary{padding:26px 22px;}
   }
 
@@ -712,11 +707,6 @@
       </div>
 
       <div class="order-panel">
-      <div class="order-panel-head">
-        <h3>Formularz zamówienia</h3>
-        <div class="mini-price">Numizmat I — Dekalog<b>299 zł</b></div>
-      </div>
-
       <form class="order-form" id="orderForm" novalidate>
         <p class="order-declaration"><strong>Tak, zamawiam złoty numizmat kolekcjonerski Pierwsze Przykazanie w cenie 299 zł.</strong>
         Jednocześnie rozpoczynam kolekcjonowanie złotych numizmatów z limitowanej kolekcji „Dziesięć Przykazań”.
@@ -725,7 +715,7 @@
 
         <div class="form-row">
           <div class="form-field full" style="max-width:260px;">
-            <label for="f-plec">Wybierz płeć *</label>
+            <label for="f-plec" class="sr-only">Wybierz płeć *</label>
             <select id="f-plec" name="plec" required>
               <option value="" disabled selected>Wybierz płeć *</option>
               <option value="pan">Pan</option>
@@ -735,45 +725,45 @@
         </div>
         <div class="form-row">
           <div class="form-field">
-            <label for="f-imie">Imię *</label>
+            <label for="f-imie" class="sr-only">Imię *</label>
             <input id="f-imie" name="imie" type="text" placeholder="Imię *" required>
           </div>
           <div class="form-field">
-            <label for="f-nazwisko">Nazwisko *</label>
+            <label for="f-nazwisko" class="sr-only">Nazwisko *</label>
             <input id="f-nazwisko" name="nazwisko" type="text" placeholder="Nazwisko *" required>
           </div>
         </div>
         <div class="form-row form-row-3">
           <div class="form-field">
-            <label for="f-ulica">Ulica *</label>
+            <label for="f-ulica" class="sr-only">Ulica *</label>
             <input id="f-ulica" name="ulica" type="text" placeholder="Ulica *" required>
           </div>
           <div class="form-field">
-            <label for="f-nrdomu">Nr domu *</label>
+            <label for="f-nrdomu" class="sr-only">Nr domu *</label>
             <input id="f-nrdomu" name="nrdomu" type="text" placeholder="Nr domu *" required>
           </div>
           <div class="form-field">
-            <label for="f-nrmieszkania">Nr mieszkania</label>
+            <label for="f-nrmieszkania" class="sr-only">Nr mieszkania</label>
             <input id="f-nrmieszkania" name="nrmieszkania" type="text" placeholder="Nr mieszkania">
           </div>
         </div>
         <div class="form-row">
           <div class="form-field">
-            <label for="f-kod">Kod pocztowy *</label>
+            <label for="f-kod" class="sr-only">Kod pocztowy *</label>
             <input id="f-kod" name="kod" type="text" placeholder="Kod pocztowy *" pattern="\d{2}-\d{3}" required>
           </div>
           <div class="form-field">
-            <label for="f-miasto">Miejscowość *</label>
+            <label for="f-miasto" class="sr-only">Miejscowość *</label>
             <input id="f-miasto" name="miasto" type="text" placeholder="Miejscowość *" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-field">
-            <label for="f-email">E-mail *</label>
+            <label for="f-email" class="sr-only">E-mail *</label>
             <input id="f-email" name="email" type="email" placeholder="E-mail *" required>
           </div>
           <div class="form-field">
-            <label for="f-tel">Nr telefonu *</label>
+            <label for="f-tel" class="sr-only">Nr telefonu *</label>
             <input id="f-tel" name="telefon" type="tel" placeholder="Nr telefonu *" pattern="[0-9 +]{7,15}" required>
           </div>
         </div>
@@ -783,10 +773,10 @@
 
         <label class="form-consent">
           <input type="checkbox" required>
-          Tak, zgadzam się z
+          <span>Tak, zgadzam się z
           <a href="regulamin.html" target="_blank" rel="noopener" style="color:var(--gold-deep); font-weight:600;">Ogólnymi Warunkami</a>
           i zapoznałem się z
-          <a href="polityka-prywatnosci.html" target="_blank" rel="noopener" style="color:var(--gold-deep); font-weight:600;">Polityką prywatności</a> AZ AURUM. *
+          <a href="polityka-prywatnosci.html" target="_blank" rel="noopener" style="color:var(--gold-deep); font-weight:600;">Polityką prywatności</a> AZ AURUM. *</span>
         </label>
 
         <button type="submit" class="btn">Tak, zamawiam</button>
