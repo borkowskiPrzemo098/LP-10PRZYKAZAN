@@ -303,6 +303,12 @@
   .order-panel-head .mini-price b{display:block; color:var(--gold-deep); font-family:'Work Sans',sans-serif; font-size:19px; font-weight:700; letter-spacing:0;}
   .order-form{padding:36px 40px 40px;}
   .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;}
+  .form-row-3{grid-template-columns:1.3fr .8fr .8fr;}
+  .order-declaration{
+    font-size:14px; line-height:1.6; color:var(--ink-soft); background:var(--ivory-2);
+    border:1px solid var(--line); border-radius:6px; padding:16px 18px; margin-bottom:24px;
+  }
+  .order-declaration strong{color:var(--ink);}
   .form-field{display:flex; flex-direction:column; gap:7px;}
   .form-field.full{grid-column:1/-1;}
   .form-field label{font-size:12.5px; letter-spacing:.05em; color:var(--ink-soft); font-weight:600;}
@@ -712,11 +718,16 @@
       </div>
 
       <form class="order-form" id="orderForm" novalidate>
+        <p class="order-declaration"><strong>Tak, zamawiam złoty numizmat kolekcjonerski Pierwsze Przykazanie w cenie 299 zł.</strong>
+        Jednocześnie rozpoczynam kolekcjonowanie złotych numizmatów z limitowanej kolekcji „Dziesięć Przykazań”.
+        Kolejne numizmaty otrzymam w miesięcznych odstępach wraz z rachunkiem do opłacenia. Koszty pakowania
+        i przesyłki 14,99 zł. Mam 14 dni na zapoznanie się z każdym przesłanym numizmatem.</p>
+
         <div class="form-row">
-          <div class="form-field" style="max-width:220px;">
+          <div class="form-field full" style="max-width:260px;">
             <label for="f-plec">Wybierz płeć *</label>
             <select id="f-plec" name="plec" required>
-              <option value="" disabled selected>Wybierz</option>
+              <option value="" disabled selected>Wybierz płeć *</option>
               <option value="pan">Pan</option>
               <option value="pani">Pani</option>
             </select>
@@ -725,43 +736,45 @@
         <div class="form-row">
           <div class="form-field">
             <label for="f-imie">Imię *</label>
-            <input id="f-imie" name="imie" type="text" placeholder="Jan" required>
+            <input id="f-imie" name="imie" type="text" placeholder="Imię *" required>
           </div>
           <div class="form-field">
             <label for="f-nazwisko">Nazwisko *</label>
-            <input id="f-nazwisko" name="nazwisko" type="text" placeholder="Kowalski" required>
+            <input id="f-nazwisko" name="nazwisko" type="text" placeholder="Nazwisko *" required>
+          </div>
+        </div>
+        <div class="form-row form-row-3">
+          <div class="form-field">
+            <label for="f-ulica">Ulica *</label>
+            <input id="f-ulica" name="ulica" type="text" placeholder="Ulica *" required>
+          </div>
+          <div class="form-field">
+            <label for="f-nrdomu">Nr domu *</label>
+            <input id="f-nrdomu" name="nrdomu" type="text" placeholder="Nr domu *" required>
+          </div>
+          <div class="form-field">
+            <label for="f-nrmieszkania">Nr mieszkania</label>
+            <input id="f-nrmieszkania" name="nrmieszkania" type="text" placeholder="Nr mieszkania">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-kod">Kod pocztowy *</label>
+            <input id="f-kod" name="kod" type="text" placeholder="Kod pocztowy *" pattern="\d{2}-\d{3}" required>
+          </div>
+          <div class="form-field">
+            <label for="f-miasto">Miejscowość *</label>
+            <input id="f-miasto" name="miasto" type="text" placeholder="Miejscowość *" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-field">
             <label for="f-email">E-mail *</label>
-            <input id="f-email" name="email" type="email" placeholder="jan.kowalski@email.pl" required>
+            <input id="f-email" name="email" type="email" placeholder="E-mail *" required>
           </div>
           <div class="form-field">
-            <label for="f-tel">Telefon *</label>
-            <input id="f-tel" name="telefon" type="tel" placeholder="600 000 000" pattern="[0-9 +]{7,15}" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field full">
-            <label for="f-adres">Adres dostawy *</label>
-            <input id="f-adres" name="adres" type="text" placeholder="Ulica i numer domu" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="f-miasto">Miasto *</label>
-            <input id="f-miasto" name="miasto" type="text" placeholder="Warszawa" required>
-          </div>
-          <div class="form-field">
-            <label for="f-kod">Kod pocztowy *</label>
-            <input id="f-kod" name="kod" type="text" placeholder="00-000" pattern="\d{2}-\d{3}" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field full">
-            <label for="f-uwagi">Uwagi do zamówienia (opcjonalnie)</label>
-            <textarea id="f-uwagi" name="uwagi" placeholder="Np. preferowana pora dostawy"></textarea>
+            <label for="f-tel">Nr telefonu *</label>
+            <input id="f-tel" name="telefon" type="tel" placeholder="Nr telefonu *" pattern="[0-9 +]{7,15}" required>
           </div>
         </div>
 
@@ -778,10 +791,12 @@
 
         <button type="submit" class="btn">Tak, zamawiam</button>
         <p class="form-note">W celu opłacenia zamówienia zostaniesz przekierowany na bezpieczną stronę dla wybranej metody płatności.</p>
+        <p class="form-note" style="font-weight:600; color:var(--ink-soft);">To formularz demonstracyjny — zamówienia nie są rejestrowane ani przekazywane do realizacji.</p>
         <p class="form-note" style="margin-top:18px; font-size:11.5px; line-height:1.6;">Jeżeli przy zamówieniu podałeś swój adres e-mail, jako Klienta poinformujemy Cię e-mailem o naszych
-        produktach podobnych do tych, które kupiłeś. Możesz to w każdej chwili odwołać — w przypadku sprzeciwu
-        wobec wykorzystywania przez AZ AURUM danych osobowych w celach reklamowych lub chęci cofnięcia zgody,
-        prosimy o wiadomość e-mail na adres: sklep@azaurum-sklep.pl.</p>
+        produktach podobnych do tych, które kupiłeś. Możesz to oczywiście w każdej chwili odwołać. W przypadku
+        sprzeciwu wobec wykorzystywania przez AZ AURUM danych osobowych w celach reklamowych dla podobnych
+        produktów lub też chęci cofnięcia udzielonej zgody, prosimy o przesłanie krótkiej wiadomości e-mailem
+        na adres: <a href="mailto:sklep@azaurum-sklep.pl" style="color:var(--gold-deep); font-weight:600;">sklep@azaurum-sklep.pl</a></p>
       </form>
 
       <div class="order-success" id="orderSuccess">
