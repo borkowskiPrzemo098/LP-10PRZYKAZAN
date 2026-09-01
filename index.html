@@ -22,6 +22,10 @@
     --gold-pale:#e4c266;
     --gold-deep:#7c5817;
     --sacred:#7c2a24;
+    --sacred-deep:#4f1518;
+    --sacred-2:#661f22;
+    --amber:#e8c876;
+    --amber-deep:#cf9f42;
     --line:#ddc98f;
     --line-light:#c9ad6c;
     --maxw:1180px;
@@ -156,7 +160,7 @@
   .coin-cell:nth-child(10) .coin{background-position:100% 100%;}
 
   /* ============ OPINIE ============ */
-  .reviews-band{background:var(--ivory); border-bottom:1px solid var(--line);}
+  .reviews-band{background:var(--parchment-2); border-bottom:1px solid var(--line);}
   .reviews-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
   .review-card{padding:0;}
   .review-stars{display:flex; gap:3px; margin-bottom:12px;}
@@ -181,12 +185,16 @@
 
   /* ============ SPEC ============ */
   .spec-band{
-    position:relative; border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden;
+    position:relative; overflow:hidden;
+    background:linear-gradient(115deg, var(--amber) 0%, var(--amber-deep) 60%, var(--gold) 100%);
   }
   .spec-band .spec-bg{position:absolute; inset:0; z-index:0;}
-  .spec-band .spec-bg img{width:100%; height:100%; object-fit:cover; opacity:.16;}
-  .spec-band .spec-bg::after{content:""; position:absolute; inset:0; background:linear-gradient(100deg, var(--ivory-2) 0%, rgba(242,230,200,.85) 55%, rgba(242,230,200,.65) 100%);}
+  .spec-band .spec-bg img{width:100%; height:100%; object-fit:cover; opacity:.14; mix-blend-mode:multiply;}
   .spec-band .wrap{position:relative; z-index:1;}
+  .spec-band .eyebrow{color:var(--sacred-deep);}
+  .spec-band .eyebrow::before{background:var(--sacred-deep);}
+  .spec-band .spec-table td:first-child{color:#5c4318;}
+  .spec-band .spec-table tr{border-bottom:1px solid rgba(92,67,24,.25);}
   .spec-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
   .spec-table{width:100%; border-collapse:collapse;}
   .spec-table tr{border-bottom:1px solid var(--line);}
@@ -207,17 +215,22 @@
   .benefit-card p{color:var(--ink-soft); font-size:15px;}
 
   /* ============ JAK TO DZIALA ============ */
-  .steps-band{background:var(--parchment);}
+  .steps-band{
+    background:linear-gradient(155deg, var(--sacred-2) 0%, var(--sacred-deep) 100%);
+  }
+  .steps-band .eyebrow{color:var(--amber);}
+  .steps-band .eyebrow::before{background:var(--amber);}
+  .steps-band .section-head h2{color:#fdf6e6;}
   .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:28px; counter-reset:step; position:relative;}
-  .steps::before{content:""; position:absolute; top:22px; left:6%; right:6%; height:1px; background:var(--line-light); z-index:0;}
+  .steps::before{content:""; position:absolute; top:22px; left:6%; right:6%; height:1px; background:rgba(232,200,118,.3); z-index:0;}
   .step{position:relative; z-index:1;}
   .step .step-n{
-    width:44px; height:44px; border-radius:50%; background:var(--ivory); border:1px solid var(--gold);
+    width:44px; height:44px; border-radius:50%; background:transparent; border:1px solid var(--amber);
     display:flex; align-items:center; justify-content:center; font-family:'Cormorant',serif; font-weight:700;
-    color:var(--gold-deep); font-size:18px; margin-bottom:20px;
+    color:var(--amber); font-size:18px; margin-bottom:20px;
   }
-  .step h4{font-size:18px; margin-bottom:8px; font-family:'Work Sans',sans-serif; font-weight:600; letter-spacing:0;}
-  .step p{font-size:14.5px; color:var(--ink-soft);}
+  .step h4{font-size:18px; margin-bottom:8px; font-family:'Work Sans',sans-serif; font-weight:600; letter-spacing:0; color:#fdf6e6;}
+  .step p{font-size:14.5px; color:#d8c3ae;}
 
   /* ============ WARUNKI / GWARANCJA ============ */
   .terms-band .wrap{display:flex; justify-content:center;}
