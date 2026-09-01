@@ -160,14 +160,17 @@
   .coin-cell:nth-child(10) .coin{background-position:100% 100%;}
 
   /* ============ OPINIE ============ */
-  .reviews-band{background:var(--parchment-2); border-bottom:1px solid var(--line);}
+  .reviews-band{background:linear-gradient(155deg, var(--sacred-2) 0%, var(--sacred-deep) 100%);}
+  .reviews-band .eyebrow{color:var(--amber); justify-content:center;}
+  .reviews-band .eyebrow::before{background:var(--amber);}
+  .reviews-band h2{color:#fdf6e6;}
   .reviews-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
   .review-card{padding:0;}
   .review-stars{display:flex; gap:3px; margin-bottom:12px;}
-  .review-stars svg{width:15px; height:15px; fill:var(--gold); stroke:none;}
-  .review-quote{font-size:14.5px; color:var(--ink-soft); line-height:1.6; margin-bottom:14px;}
-  .review-author{font-size:13px; font-weight:600; color:var(--ink);}
-  .review-author span{display:block; font-weight:400; color:var(--ink-soft); font-size:12px; margin-top:2px;}
+  .review-stars svg{width:15px; height:15px; fill:var(--amber); stroke:none;}
+  .review-quote{font-size:14.5px; color:#d8c3ae; line-height:1.6; margin-bottom:14px;}
+  .review-author{font-size:13px; font-weight:600; color:#fdf6e6;}
+  .review-author span{display:block; font-weight:400; color:#c7ac93; font-size:12px; margin-top:2px;}
 
   /* ============ O KOLEKCJI ============ */
   .about-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:64px; align-items:stretch;}
@@ -349,6 +352,7 @@
   .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:0;}
   .foot-logo img{height:34px; margin-bottom:16px;}
   .foot-grid p{color:#d8c3ae; font-size:14px; max-width:340px;}
+  .foot-contact span{display:block; color:#fff; font-size:14.5px; margin-bottom:10px;}
   .foot-col h5{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin-bottom:16px; font-family:'Work Sans',sans-serif; font-weight:700;}
   .foot-col a, .foot-col span{display:block; color:#d8c3ae; text-decoration:none; font-size:14.5px; margin-bottom:10px;}
   .foot-col a:hover{color:var(--amber);}
@@ -569,7 +573,7 @@
         <div class="review-author">Piotr S.<span>Kolekcjoner, Gdańsk</span></div>
       </div>
     </div>
-    <p style="text-align:center; font-size:11.5px; color:var(--ink-soft); opacity:.7; margin-top:28px;">Przykładowe opinie na potrzeby strony demonstracyjnej — przed uruchomieniem kampanii zastąp realnymi recenzjami klientów.</p>
+    <p style="text-align:center; font-size:11.5px; color:#c7ac93; opacity:.85; margin-top:28px;">Przykładowe opinie na potrzeby strony demonstracyjnej — przed uruchomieniem kampanii zastąp realnymi recenzjami klientów.</p>
   </div>
 </section>
 
@@ -814,8 +818,8 @@
 
 <footer>
   <div class="wrap foot-grid">
-    <div>
-      <div class="foot-logo"><img src="images/logoAZ-gr.png" alt="AZ Aurum — Numizmatyka Adam Zieliński" style="width:170px; height:auto; background:#fff; border-radius:8px; padding:10px; margin-bottom:14px;"></div>
+    <div class="foot-contact">
+      <div class="foot-logo"><img src="images/azlogo-v2.png" alt="AZ Aurum — Numizmatyka Adam Zieliński" style="width:180px; height:auto; margin-bottom:14px;"></div>
       <span>Biuro Obsługi Klienta</span>
       <span>Tel: 784 622 333 (pon–pt, 9:00–17:00)</span>
       <span>Email: sklep@azaurum-sklep.pl</span>
