@@ -296,12 +296,13 @@
   .order-form{padding:36px 40px 40px;}
   .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;}
   .form-row-3{grid-template-columns:1.3fr .8fr .8fr;}
+  .form-row-3 .form-field{min-width:0;}
   .order-declaration{
     font-size:14px; line-height:1.6; color:var(--ink-soft); background:var(--ivory-2);
     border:1px solid var(--line); border-radius:6px; padding:16px 18px; margin-bottom:24px;
   }
-  .order-declaration strong{color:var(--ink);}
-  .form-field{display:flex; flex-direction:column; gap:7px;}
+  .order-declaration strong{display:block; color:var(--ink); font-size:15px; margin-bottom:8px;}
+  .form-field{display:flex; flex-direction:column; gap:7px; min-width:0;}
   .form-field.full{grid-column:1/-1;}
   .form-field label{font-size:12.5px; letter-spacing:.05em; color:var(--ink-soft); font-weight:600;}
   .sr-only{
@@ -322,6 +323,13 @@
   .form-consent{display:flex; align-items:flex-start; gap:10px; margin:22px 0 26px; font-size:13.5px; color:var(--ink-soft);}
   .form-consent input{margin-top:3px; accent-color:var(--gold-deep);}
   .order-form .btn{width:100%; justify-content:center; padding:18px 30px; font-size:14px;}
+  .btn-phone{
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    width:100%; margin-top:12px; padding:15px 24px;
+    background:var(--ivory-2); border:1px solid var(--line-light); border-radius:2px;
+    color:var(--ink-soft); font-size:13px; font-weight:600; letter-spacing:.01em;
+    cursor:default; user-select:text;
+  }
   .form-note{text-align:center; font-size:12.5px; color:var(--ink-soft); margin-top:16px;}
   .form-note a{color:var(--gold-deep); text-decoration:none; font-weight:600;}
 
@@ -708,10 +716,12 @@
 
       <div class="order-panel">
       <form class="order-form" id="orderForm" novalidate>
-        <p class="order-declaration"><strong>Tak, zamawiam złoty numizmat kolekcjonerski Pierwsze Przykazanie w cenie 299 zł.</strong>
-        Jednocześnie rozpoczynam kolekcjonowanie złotych numizmatów z limitowanej kolekcji „Dziesięć Przykazań”.
-        Kolejne numizmaty otrzymam w miesięcznych odstępach wraz z rachunkiem do opłacenia. Koszty pakowania
-        i przesyłki 14,99 zł. Mam 14 dni na zapoznanie się z każdym przesłanym numizmatem.</p>
+        <p class="order-declaration">
+          <strong>Tak, zamawiam złoty numizmat kolekcjonerski Pierwsze Przykazanie w cenie 299 zł.</strong>
+          <span>Jednocześnie rozpoczynam kolekcjonowanie złotych numizmatów z limitowanej kolekcji „Dziesięć Przykazań”.
+          Kolejne numizmaty otrzymam w miesięcznych odstępach wraz z rachunkiem do opłacenia. Koszty pakowania
+          i przesyłki 14,99 zł. Mam 14 dni na zapoznanie się z każdym przesłanym numizmatem.</span>
+        </p>
 
         <div class="form-row">
           <div class="form-field full" style="max-width:260px;">
@@ -769,7 +779,6 @@
         </div>
 
         <p class="form-note" style="margin-top:0; margin-bottom:18px; text-align:left;"><b style="color:var(--ink);">PayU</b> — płatności realizowane są przez serwis PayU (przelewy oraz BLIK, Visa, Mastercard, Google Pay, Apple Pay).</p>
-        <p class="form-note" style="margin-top:0; margin-bottom:18px; text-align:left;">Zamówienie można złożyć także telefonicznie: <a href="tel:784622333">784 622 333</a> (pon–pt, 9:00–17:00), e-mail: <a href="mailto:sklep@azaurum-sklep.pl">sklep@azaurum-sklep.pl</a>.</p>
 
         <label class="form-consent">
           <input type="checkbox" required>
@@ -780,6 +789,7 @@
         </label>
 
         <button type="submit" class="btn">Tak, zamawiam</button>
+        <div class="btn-phone" role="note" aria-label="Zamówienie telefoniczne">Zamówienie można złożyć także telefonicznie: 784 622 333 (pon–pt, 9:00–17:00), e-mail: sklep@azaurum-sklep.pl</div>
         <p class="form-note">W celu opłacenia zamówienia zostaniesz przekierowany na bezpieczną stronę dla wybranej metody płatności.</p>
         <p class="form-note" style="font-weight:600; color:var(--ink-soft);">To formularz demonstracyjny — zamówienia nie są rejestrowane ani przekazywane do realizacji.</p>
         <p class="form-note" style="margin-top:18px; font-size:11.5px; line-height:1.6;">Jeżeli przy zamówieniu podałeś swój adres e-mail, jako Klienta poinformujemy Cię e-mailem o naszych
