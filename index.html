@@ -8,511 +8,428 @@
 <meta name="description" content="Kolekcja Dziesięć Przykazań – dziesięć numizmatów ze złota próby 999,9. Pierwszy egzemplarz za 299 zł. Certyfikat autentyczności, kapsuła i pudełko kolekcjonerskie gratis.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600;700&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ivory:#faf3e2;
     --ivory-2:#f2e6c8;
     --parchment:#ecdcae;
-    --parchment-2:#e4cf98;
+    --paper:#fffaf0;
     --ink:#2c1e0f;
     --ink-soft:#6b5738;
     --gold:#a9791f;
-    --gold-light:#c89a3d;
     --gold-pale:#e4c266;
     --gold-deep:#7c5817;
     --sacred:#7c2a24;
-    --sacred-deep:#4f1518;
     --sacred-2:#661f22;
+    --sacred-deep:#4f1518;
     --amber:#e8c876;
-    --amber-deep:#cf9f42;
+    --on-sacred:#fdf6e6;
+    --on-sacred-soft:#dcc7b2;
     --line:#ddc98f;
     --line-light:#c9ad6c;
+    --line-on-sacred:rgba(232,200,118,.26);
     --maxw:1180px;
+    --ease:cubic-bezier(.16,1,.3,1);
   }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; scrollbar-color:var(--sacred) var(--ivory-2);}
   body{
-    font-family:'Work Sans',"Segoe UI",sans-serif;
-    color:var(--ink);
-    background:var(--ivory);
-    line-height:1.65;
-    font-size:16.5px;
+    font-family:'Work Sans',"Segoe UI",sans-serif; font-size:16.5px; line-height:1.65;
+    color:var(--ink); background:var(--ivory); caret-color:var(--sacred);
+    -webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3,h4{font-family:'Cormorant',Georgia,serif; font-weight:600; letter-spacing:.03em; text-wrap:balance; color:var(--ink);}
+  h1,h2,h3,h4,h5,.coin-label,.step-n{font-variant-numeric:lining-nums;}
+  h1,h2,h3,h4,h5{font-family:'Cormorant',Georgia,serif; font-weight:600; color:var(--ink); text-wrap:balance; letter-spacing:.005em;}
+  p{text-wrap:pretty;}
   img{max-width:100%; display:block;}
-  a{color:inherit;}
+  a{color:inherit; text-underline-offset:3px;}
+  ::selection{background:var(--sacred); color:var(--on-sacred);}
+  :focus-visible{outline:2px solid var(--sacred); outline-offset:3px;}
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
-  ::selection{background:var(--gold); color:#fff;}
+  .num{font-variant-numeric:tabular-nums lining-nums;}
 
+  /* ---------- running heads (section labels, drawn as catalogue dividers) ---------- */
+  .runhead{
+    display:flex; align-items:center; gap:14px; margin-bottom:26px;
+    font-family:'Cormorant',Georgia,serif; font-style:italic; font-weight:600; font-size:1.2rem;
+    color:var(--gold-deep); letter-spacing:.01em;
+  }
+  .runhead::before{content:""; width:34px; height:1px; background:var(--gold);}
+  .runhead.center{justify-content:center;}
+  .runhead.center::after{content:""; width:34px; height:1px; background:var(--gold);}
+  .on-sacred .runhead{color:var(--amber);}
+  .on-sacred .runhead::before, .on-sacred .runhead::after{background:var(--amber);}
+
+  h2.display{font-size:clamp(2.1rem,3.6vw,3.05rem); line-height:1.06;}
+  .lede{font-size:17.5px; color:var(--ink-soft); max-width:62ch;}
+  .center-head{text-align:center; max-width:720px; margin:0 auto 56px;}
+  .center-head .lede{margin:16px auto 0;}
+
+  /* ---------- buttons ---------- */
   .btn{
-    display:inline-flex; align-items:center; gap:10px;
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
     background:linear-gradient(135deg,var(--sacred-2) 0%,var(--sacred) 55%,var(--sacred-deep) 100%);
-    color:#fff;
-    text-shadow:0 1px 2px rgba(0,0,0,.35);
-    font-family:'Work Sans',sans-serif;
-    font-weight:700;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    padding:17px 40px;
-    border-radius:2px;
-    text-decoration:none;
-    font-size:13.5px;
-    box-shadow:0 14px 26px -10px rgba(60,40,10,.4), inset 0 1px 0 rgba(255,255,255,.55);
-    border:none;
-    cursor:pointer;
-    transition:transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s cubic-bezier(.16,1,.3,1);
+    color:#fff; text-shadow:0 1px 2px rgba(0,0,0,.3);
+    font-family:'Work Sans',sans-serif; font-weight:700; font-size:13.5px; letter-spacing:.08em; text-transform:uppercase;
+    padding:18px 40px; border:0; border-radius:2px; text-decoration:none; cursor:pointer;
+    box-shadow:0 14px 26px -12px rgba(79,21,24,.55), inset 0 1px 0 rgba(255,255,255,.18);
+    transition:transform .3s var(--ease), box-shadow .3s var(--ease), filter .3s var(--ease);
   }
-  .btn:hover{transform:translateY(-2px); box-shadow:0 18px 32px -10px rgba(60,40,10,.48), inset 0 1px 0 rgba(255,255,255,.55);}
-  .btn:focus-visible{outline:2px solid var(--sacred); outline-offset:3px;}
-  .btn-outline{
-    background:transparent; color:var(--ink); border:1px solid var(--line-light); box-shadow:none;
-  }
-  .btn-outline:hover{border-color:var(--sacred); color:var(--sacred); transform:translateY(-2px); box-shadow:none;}
+  .btn:hover{transform:translateY(-2px); filter:brightness(1.08); box-shadow:0 20px 34px -14px rgba(79,21,24,.6), inset 0 1px 0 rgba(255,255,255,.18);}
+  .btn:active{transform:translateY(0); filter:brightness(.96);}
+  .btn-sm{padding:12px 24px; font-size:12px; white-space:nowrap;}
 
-  .eyebrow{
-    font-family:'Work Sans',sans-serif; font-size:11.5px; letter-spacing:.28em; text-transform:uppercase;
-    color:var(--gold-deep); display:flex; align-items:center; gap:12px; font-weight:700; margin-bottom:18px;
-  }
-  .eyebrow::before{content:""; width:26px; height:1px; background:var(--gold); display:inline-block;}
-
-  /* ============ TOPBAR ============ */
-  .topbar{
-    background:var(--ink); color:var(--parchment);
-    font-size:12.5px; letter-spacing:.08em; text-align:center; padding:10px 0;
-  }
-  .topbar b{color:var(--gold-pale); font-weight:600;}
-
-  /* ============ HEADER ============ */
-  header.site{background:var(--ivory); padding:18px 0; border-bottom:1px solid var(--line);}
-  header.site .wrap{display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;}
+  /* ---------- topbar + header ---------- */
+  .topbar{background:var(--sacred-deep); color:var(--on-sacred-soft); font-size:12.5px; letter-spacing:.06em; text-align:center; padding:9px 0;}
+  .topbar b{color:var(--amber); font-weight:600;}
+  .topbar i{display:inline-block; width:4px; height:4px; background:var(--amber); transform:rotate(45deg); margin:0 12px 2px; opacity:.7;}
+  header.site{background:var(--ivory); border-bottom:1px solid var(--line);}
+  header.site .wrap{display:flex; justify-content:space-between; align-items:center; gap:20px; padding-top:14px; padding-bottom:14px;}
   .logo img{height:68px; width:auto;}
-  .head-contact{display:flex; align-items:center; gap:22px; font-size:14px; color:var(--ink-soft);}
+  .head-contact{display:flex; align-items:center; gap:24px; font-size:14px; color:var(--ink-soft);}
   .head-contact a{text-decoration:none;}
-  .head-phone{color:var(--gold-deep); font-weight:700; letter-spacing:.02em;}
+  .head-phone{color:var(--sacred); font-weight:700; font-size:15px;}
 
-  /* ============ HERO ============ */
-  .hero{
-    position:relative; overflow:hidden;
-    background:var(--ivory);
-    padding:0;
-  }
-  .hero-bg{
-    position:absolute; inset:0; z-index:0;
+  /* ---------- hero ---------- */
+  .hero{position:relative; overflow:hidden; background:var(--ivory);}
+  .hero::before{
+    content:""; position:absolute; inset:0; pointer-events:none;
     background:
-      radial-gradient(ellipse 900px 640px at 74% 10%, rgba(228,194,102,.4), transparent 60%),
-      radial-gradient(ellipse 700px 500px at 8% 90%, rgba(224,203,150,.35), transparent 62%),
-      var(--ivory);
+      radial-gradient(ellipse 760px 620px at 76% 44%, rgba(228,194,102,.42), transparent 64%),
+      radial-gradient(ellipse 620px 460px at 4% 100%, rgba(224,203,150,.38), transparent 62%);
   }
-  .hero .wrap{position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:stretch; padding-top:28px; padding-bottom:28px; min-height:480px;}
-  .hero-copy{display:flex; flex-direction:column; justify-content:center;}
-  .hero h1{font-size:clamp(2.6rem,4.8vw,4.2rem); line-height:1.02; margin-bottom:18px; text-transform:uppercase; letter-spacing:.015em;}
-  .hero h1 em{
-    display:block; font-style:italic; color:var(--ink-soft); font-family:'Work Sans',sans-serif; font-weight:500;
-    font-size:clamp(1rem,1.6vw,1.25rem); text-transform:none; letter-spacing:0; margin-top:10px;
-  }
-  .hero p.lead{font-size:18px; color:var(--ink-soft); max-width:480px; margin-bottom:32px;}
-  .hero .cta-row{display:flex; align-items:center; gap:22px; flex-wrap:wrap; margin-bottom:20px;}
-  .hero .price-tag{font-size:13px; color:var(--ink-soft);}
-  .hero .price-tag b{display:block; color:var(--gold-deep); font-family:'Work Sans',sans-serif; font-size:24px; font-weight:700; letter-spacing:0;}
-  .trust-mini{display:flex; gap:26px; flex-wrap:wrap; margin-top:8px; font-size:12.5px; color:var(--ink-soft); letter-spacing:.03em;}
-  .trust-mini span{display:flex; align-items:center; gap:7px;}
-  .trust-mini svg{width:14px; height:14px; stroke:var(--gold-deep);}
+  .hero .wrap{position:relative; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.9fr); gap:48px; align-items:center; padding-top:22px; padding-bottom:22px;}
+  .hero-copy{max-width:540px;}
+  .hero h1{font-size:clamp(2.9rem,5.4vw,4.7rem); line-height:.96; text-transform:uppercase; letter-spacing:.012em; font-weight:600; margin-bottom:22px;}
+  .hero h1 em{display:block; margin-top:14px; font-family:'Work Sans',sans-serif; font-style:italic; font-weight:500; font-size:clamp(1.05rem,1.5vw,1.25rem); text-transform:none; letter-spacing:0; color:var(--ink-soft); line-height:1.3;}
+  .hero .lead{font-size:18px; color:var(--ink-soft); margin-bottom:30px; max-width:46ch;}
+  .cta-row{display:flex; align-items:center; gap:26px; margin-bottom:22px;}
+  .price-tag{padding-left:26px; border-left:1px solid var(--line-light); font-size:13px; color:var(--ink-soft); line-height:1.3;}
+  .price-tag b{display:block; margin-top:4px; font-size:28px; font-weight:700; color:var(--sacred); letter-spacing:-.01em;}
+  .hero .fine{font-size:12.5px; line-height:1.6; color:var(--ink-soft); max-width:52ch; margin-bottom:22px;}
+  .gratis{list-style:none; display:flex; flex-wrap:wrap; gap:10px 22px; padding-top:18px; border-top:1px solid var(--line);}
+  .gratis li{display:flex; align-items:center; gap:8px; font-size:13px; font-weight:500; color:var(--ink);}
+  .gratis svg{width:16px; height:16px; flex:none; stroke:var(--gold-deep); fill:none; stroke-width:1.7;}
+  .hero-visual{display:flex; justify-content:center; align-items:center;}
+  .hero-visual img{height:clamp(520px,76vh,720px); width:auto; max-width:100%; object-fit:contain;}
 
-  /* product visual */
-  .tablet-stage{position:relative; display:flex; align-items:center; justify-content:center; height:100%;}
-  .halo{
-    position:absolute; width:520px; height:520px; border-radius:50%;
-    background:radial-gradient(circle, rgba(228,194,102,.55) 0%, rgba(228,194,102,.14) 45%, transparent 70%);
-    z-index:0;
-  }
-  .hero-photo-frame{
-    position:relative; z-index:1; height:100%; width:100%;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .hero-photo-frame img{height:100%; width:100%; object-fit:cover; object-position:center; display:block;}
+  section{padding:104px 0;}
 
-  section{padding:96px 0;}
-  section.tight{padding:72px 0;}
-  .section-head{max-width:640px; margin-bottom:56px;}
-  .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
-  .section-head h2{font-size:clamp(2rem,3.4vw,2.7rem);}
-  .section-head p{color:var(--ink-soft); font-size:17px; margin-top:14px;}
-
-  /* ============ KOLEKCJA GRID ============ */
-  .collection-band{background:var(--parchment); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .coins-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
+  /* ---------- collection plate ---------- */
+  .collection{background:var(--parchment); border-block:1px solid var(--line);}
+  .plate{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:34px 22px; list-style:none;}
+  .plate li{text-align:center;}
   .coin{
-    aspect-ratio:3/4; position:relative;
-    background-image:url('images/sequence1.png');
-    background-size:500% 200%;
+    aspect-ratio:3/4; background-image:url('images/sequence1.png'); background-size:500% 200%;
+    transition:transform .45s var(--ease), box-shadow .45s var(--ease);
   }
-  .coin-label{text-align:center; margin-top:12px; font-size:12px; color:var(--ink-soft); letter-spacing:.03em;}
-  .coin-cell:nth-child(1) .coin{background-position:0% 0%;}
-  .coin-cell:nth-child(2) .coin{background-position:25% 0%;}
-  .coin-cell:nth-child(3) .coin{background-position:50% 0%;}
-  .coin-cell:nth-child(4) .coin{background-position:75% 0%;}
-  .coin-cell:nth-child(5) .coin{background-position:100% 0%;}
-  .coin-cell:nth-child(6) .coin{background-position:0% 100%;}
-  .coin-cell:nth-child(7) .coin{background-position:25% 100%;}
-  .coin-cell:nth-child(8) .coin{background-position:50% 100%;}
-  .coin-cell:nth-child(9) .coin{background-position:75% 100%;}
-  .coin-cell:nth-child(10) .coin{background-position:100% 100%;}
+  .plate li:hover .coin{transform:translateY(-6px); box-shadow:0 22px 30px -18px rgba(60,40,10,.55);}
+  .plate li:nth-child(1) .coin{background-position:0% 0%;}
+  .plate li:nth-child(2) .coin{background-position:25% 0%;}
+  .plate li:nth-child(3) .coin{background-position:50% 0%;}
+  .plate li:nth-child(4) .coin{background-position:75% 0%;}
+  .plate li:nth-child(5) .coin{background-position:100% 0%;}
+  .plate li:nth-child(6) .coin{background-position:0% 100%;}
+  .plate li:nth-child(7) .coin{background-position:25% 100%;}
+  .plate li:nth-child(8) .coin{background-position:50% 100%;}
+  .plate li:nth-child(9) .coin{background-position:75% 100%;}
+  .plate li:nth-child(10) .coin{background-position:100% 100%;}
+  .coin-label{margin-top:14px; font-family:'Cormorant',serif; font-style:italic; font-weight:600; font-size:1.1rem; color:var(--gold-deep);}
 
-  /* ============ OPINIE ============ */
-  .reviews-band{background:linear-gradient(155deg, var(--sacred-2) 0%, var(--sacred-deep) 100%);}
-  .reviews-band .eyebrow{color:var(--amber); justify-content:center;}
-  .reviews-band .eyebrow::before{background:var(--amber);}
-  .reviews-band h2{color:#fdf6e6;}
-  .reviews-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-  .review-card{padding:0;}
-  .review-stars{display:flex; gap:3px; margin-bottom:12px;}
-  .review-stars svg{width:15px; height:15px; fill:var(--amber); stroke:none;}
-  .review-quote{font-size:14.5px; color:#d8c3ae; line-height:1.6; margin-bottom:14px;}
-  .review-author{font-size:13px; font-weight:600; color:#fdf6e6;}
-  .review-author span{display:block; font-weight:400; color:#c7ac93; font-size:12px; margin-top:2px;}
+  /* the one authored moment: the ten pieces are struck in sequence */
+  .js .strike{opacity:0; transform:translateY(18px) scale(.97); filter:blur(4px);}
+  .js .strike.in{opacity:1; transform:none; filter:none; transition:opacity .9s var(--ease), transform .9s var(--ease), filter .9s var(--ease); transition-delay:calc(var(--i,0) * 70ms);}
 
-  /* ============ O KOLEKCJI ============ */
-  .about-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:64px; align-items:stretch;}
-  .about-visual{
-    position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center;
-    height:100%; min-height:360px;
-  }
-  .about-visual img{width:100%; height:auto; max-height:78%; object-fit:contain;}
-  .about-visual .overlay-quote{
-    position:static; margin-top:22px; padding:0 10px; text-align:center;
-  }
-  .overlay-quote p{font-family:'Work Sans',sans-serif; font-style:italic; font-weight:500; font-size:18px; color:var(--gold-deep); line-height:1.4;}
-  .about-copy p{color:var(--ink-soft); margin-bottom:18px; font-size:16.5px;}
-  .about-copy p:first-of-type{font-size:19px; color:var(--ink);}
+  /* ---------- about ---------- */
+  .about .wrap{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:72px; align-items:center;}
+  .about figure img{width:100%; max-height:560px; object-fit:contain; filter:drop-shadow(0 30px 34px rgba(60,40,10,.22));}
+  .about figcaption{margin:26px auto 0; max-width:40ch; text-align:center; font-family:'Cormorant',serif; font-style:italic; font-weight:500; font-size:1.4rem; line-height:1.35; color:var(--gold-deep);}
+  .about h2{margin-bottom:26px;}
+  .about-copy p{color:var(--ink-soft); margin-bottom:16px; max-width:58ch;}
+  .about-copy p.first{font-size:19px; color:var(--ink); line-height:1.55;}
+  .about-copy p.disclaimer{font-size:13px; margin:26px 0 0; padding-top:18px; border-top:1px solid var(--line);}
 
-  /* ============ SPEC ============ */
-  .spec-band{
-    position:relative; border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden;
+  /* ---------- spec (certificate) ---------- */
+  .spec{position:relative; overflow:hidden; background:var(--ivory-2); border-block:1px solid var(--line);}
+  .spec-texture{position:absolute; inset:0; pointer-events:none;}
+  .spec-texture img{width:100%; height:100%; object-fit:cover; opacity:.14;}
+  .spec-texture::after{content:""; position:absolute; inset:0; background:linear-gradient(100deg, var(--ivory-2) 0%, rgba(242,230,200,.86) 55%, rgba(242,230,200,.66) 100%);}
+  .spec .wrap{position:relative; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:48px; align-items:center;}
+  .spec-visual{display:flex; justify-content:center;}
+  .spec-visual img{width:118%; max-width:640px; margin:-40px -9%; filter:drop-shadow(0 28px 30px rgba(60,40,10,.25));}
+  .certificate{
+    background:var(--paper); padding:44px 46px 40px;
+    box-shadow:inset 0 0 0 1px var(--line-light), inset 0 0 0 7px var(--paper), inset 0 0 0 8px var(--line), 0 30px 50px -34px rgba(60,40,10,.35);
   }
-  .spec-band .spec-bg{position:absolute; inset:0; z-index:0;}
-  .spec-band .spec-bg img{width:100%; height:100%; object-fit:cover; opacity:.16;}
-  .spec-band .spec-bg::after{content:""; position:absolute; inset:0; background:linear-gradient(100deg, var(--ivory-2) 0%, rgba(242,230,200,.85) 55%, rgba(242,230,200,.65) 100%);}
-  .spec-band .wrap{position:relative; z-index:1;}
-  .spec-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .certificate h2{font-size:clamp(1.7rem,2.5vw,2.2rem); line-height:1.12; margin-bottom:26px;}
   .spec-table{width:100%; border-collapse:collapse;}
-  .spec-table tr{border-bottom:1px solid var(--line);}
-  .spec-table tr:first-child td{padding-top:0;}
-  .spec-table td{padding:16px 0; font-size:15.5px;}
-  .spec-table td:first-child{color:var(--ink-soft); width:44%;}
-  .spec-table td:last-child{color:var(--ink); font-weight:600; letter-spacing:.02em; text-align:right;}
-  .spec-coin-visual{display:flex; align-items:center; justify-content:center;}
-  .big-coin{width:100%; max-width:440px;}
-  .big-coin img{width:100%; height:auto; display:block;}
+  .spec-table tr + tr td{border-top:1px solid var(--line);}
+  .spec-table td{padding:14px 0; font-size:15.5px; vertical-align:baseline;}
+  .spec-table td:first-child{color:var(--ink-soft); padding-right:20px;}
+  .spec-table td:last-child{text-align:right; font-weight:600; color:var(--ink);}
 
-  /* ============ BENEFITY ============ */
-  .benefits-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line);}
-  .benefit-card{background:var(--ivory); padding:44px 36px;}
-  .benefit-card .icon{width:46px; height:46px; margin-bottom:22px;}
-  .benefit-card .icon svg{width:100%; height:100%; stroke:var(--gold-deep); fill:none; stroke-width:1.3;}
-  .benefit-card h3{font-size:22px; margin-bottom:10px;}
-  .benefit-card p{color:var(--ink-soft); font-size:15px;}
+  /* ---------- burgundy bands ---------- */
+  .on-sacred{background:linear-gradient(160deg, var(--sacred-2) 0%, var(--sacred-deep) 100%); color:var(--on-sacred-soft);}
+  .on-sacred h2, .on-sacred h3, .on-sacred h4{color:var(--on-sacred);}
 
-  /* ============ JAK TO DZIALA ============ */
-  .steps-band{
-    background:linear-gradient(155deg, var(--sacred-2) 0%, var(--sacred-deep) 100%);
-  }
-  .steps-band .eyebrow{color:var(--amber);}
-  .steps-band .eyebrow::before{background:var(--amber);}
-  .steps-band .section-head h2{color:#fdf6e6;}
-  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:28px; counter-reset:step; position:relative;}
-  .steps::before{content:""; position:absolute; top:22px; left:6%; right:6%; height:1px; background:rgba(232,200,118,.3); z-index:0;}
-  .step{position:relative; z-index:1;}
-  .step .step-n{
-    width:44px; height:44px; border-radius:50%; background:var(--sacred-deep); border:1px solid var(--amber);
-    display:flex; align-items:center; justify-content:center; font-family:'Cormorant',serif; font-weight:700;
-    color:var(--amber); font-size:18px; margin-bottom:20px; position:relative; z-index:2;
-  }
-  .step h4{font-size:18px; margin-bottom:8px; font-family:'Work Sans',sans-serif; font-weight:600; letter-spacing:0; color:#fdf6e6;}
-  .step p{font-size:14.5px; color:#d8c3ae;}
+  /* reviews */
+  .reviews-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px;}
+  .review{border:1px solid var(--line-on-sacred); background:rgba(0,0,0,.14); padding:34px 32px 30px; display:flex; flex-direction:column; border-radius:3px;}
+  .stars{display:flex; gap:3px; margin-bottom:18px;}
+  .stars svg{width:15px; height:15px; fill:var(--amber);}
+  .review blockquote{font-family:'Cormorant',serif; font-style:italic; font-weight:500; font-size:1.32rem; line-height:1.38; color:var(--on-sacred); margin-bottom:24px; flex:1;}
+  .review cite{font-style:normal; font-size:13.5px; font-weight:600; color:var(--on-sacred); padding-top:16px; border-top:1px solid var(--line-on-sacred);}
+  .review cite span{display:block; font-weight:400; font-size:12.5px; color:var(--on-sacred-soft); margin-top:2px;}
+  .demo-note{text-align:center; font-size:11.5px; color:var(--on-sacred-soft); opacity:.85; margin-top:30px;}
 
-  /* ============ WARUNKI / GWARANCJA ============ */
-  .terms-band .wrap{display:flex; justify-content:center;}
-  .terms-copy{max-width:680px; text-align:center;}
-  .terms-copy h2{margin-bottom:20px;}
-  .terms-copy p{color:var(--ink-soft); margin-bottom:16px;}
-  .terms-list{list-style:none; margin-top:24px; display:inline-grid; gap:16px; text-align:left;}
-  .terms-list li{display:flex; gap:14px; align-items:flex-start; font-size:15px; color:var(--ink-soft);}
-  .terms-list svg{width:18px; height:18px; stroke:var(--gold-deep); flex:none; margin-top:2px;}
+  /* benefits */
+  .benefits .wrap{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:80px; align-items:start;}
+  .benefits h2{margin-bottom:22px;}
+  .inclusions{list-style:none; border-top:1px solid var(--line);}
+  .inclusions li{display:grid; grid-template-columns:56px 1fr; gap:22px; padding:28px 0; border-bottom:1px solid var(--line);}
+  .inclusions .ic{width:56px; height:56px; border-radius:50%; border:1px solid var(--line-light); display:grid; place-items:center; background:var(--paper);}
+  .inclusions .ic svg{width:24px; height:24px; stroke:var(--gold-deep); fill:none; stroke-width:1.4; stroke-linejoin:round;}
+  .inclusions h3{font-size:1.55rem; line-height:1.15; margin-bottom:6px;}
+  .inclusions p{font-size:15px; color:var(--ink-soft);}
 
-  /* ============ CTA FINAL / FORMULARZ ============ */
-  .cta-final{
-    background:linear-gradient(155deg, var(--parchment), var(--ivory-2));
-    border-top:1px solid var(--line);
-  }
-  .cta-final .intro{text-align:center; max-width:720px; margin:0 auto 52px;}
-  .cta-final h2{font-size:clamp(2.1rem,4vw,3rem); margin-bottom:18px;}
-  .cta-final .intro p{color:var(--ink-soft); font-size:17px; margin-bottom:30px;}
-  .cta-final .price-block{margin-bottom:8px;}
-  .cta-final .price-block .now{font-family:'Work Sans',sans-serif; font-size:44px; color:var(--gold-deep); font-weight:700; letter-spacing:0;}
-  .cta-final .price-block .unit{font-size:14px; color:var(--ink-soft); display:block; margin-top:4px;}
+  /* steps */
+  .steps{--g:28px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:var(--g); list-style:none;}
+  .step{position:relative; text-align:center; padding:0 6px;}
+  .step:not(:last-child)::after{content:""; position:absolute; top:23px; left:50%; width:calc(100% + var(--g)); height:1px; background:var(--line-on-sacred);}
+  .step-n{position:relative; z-index:1; width:46px; height:46px; margin:0 auto 22px; border-radius:50%; background:var(--sacred-deep); border:1px solid var(--amber); display:grid; place-items:center; font-family:'Cormorant',serif; font-weight:700; font-size:1.3rem; color:var(--amber);}
+  .step h4{font-family:'Work Sans',sans-serif; font-weight:600; font-size:17px; letter-spacing:0; margin-bottom:8px;}
+  .step p{font-size:14.5px; line-height:1.6;}
 
-  .order-layout{
-    max-width:980px; margin:0 auto; display:grid; grid-template-columns:.82fr 1.18fr; gap:28px; align-items:start;
+  /* terms */
+  .terms{background:var(--parchment);}
+  .notice{
+    max-width:800px; margin:0 auto; text-align:center; background:var(--paper); padding:56px 60px 52px;
+    box-shadow:inset 0 0 0 1px var(--line-light), inset 0 0 0 7px var(--paper), inset 0 0 0 8px var(--line), 0 30px 50px -34px rgba(60,40,10,.3);
   }
+  .notice h2{margin-bottom:20px;}
+  .notice > p{color:var(--ink-soft); max-width:64ch; margin:0 auto;}
+  .terms-list{display:inline-grid; gap:14px; list-style:none; text-align:left; margin-top:30px; padding-top:28px; border-top:1px solid var(--line);}
+  .terms-list li{display:grid; grid-template-columns:20px 1fr; gap:12px; font-size:15px; color:var(--ink-soft);}
+  .terms-list svg{width:18px; height:18px; margin-top:3px; stroke:var(--sacred); fill:none; stroke-width:1.8;}
 
-  .order-summary{
-    background:var(--ivory); border:2px solid var(--sacred); border-radius:8px;
-    padding:32px 30px 28px; position:relative;
-    box-shadow:0 24px 46px -28px rgba(79,21,24,.45);
-  }
-  .order-summary::before{
-    content:"TWOJE ZAMÓWIENIE"; position:absolute; top:-13px; left:28px;
-    background:var(--sacred); color:#fff; font-size:10.5px; font-weight:700; letter-spacing:.14em;
-    padding:5px 14px; border-radius:20px;
-  }
-  .order-summary h3{font-size:19px; margin-bottom:22px; color:var(--sacred-deep);}
-  .summary-product{display:flex; gap:16px; align-items:center; margin-bottom:22px; padding-bottom:22px; border-bottom:1px solid var(--line);}
-  .summary-coin{
-    flex:none; width:52px; height:68px; position:relative;
-    background-image:url('images/sequence1.png');
-    background-size:500% 200%; background-position:0% 0%;
-  }
-  .summary-product-name{font-size:15px; font-weight:600; color:var(--ink);}
+  /* ---------- order ---------- */
+  .order{background:linear-gradient(180deg, var(--ivory) 0%, var(--ivory-2) 100%);}
+  .order .center-head h2{font-size:clamp(2.3rem,4vw,3.3rem);}
+  .price-block{margin-top:26px;}
+  .price-block .now{display:block; font-size:44px; font-weight:700; color:var(--sacred); line-height:1; letter-spacing:-.015em;}
+  .price-block .unit{display:block; margin-top:10px; font-size:14px; color:var(--ink-soft);}
+  .order-layout{max-width:1000px; margin:0 auto; display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr); gap:32px; align-items:start;}
+
+  .order-summary{position:relative; background:var(--paper); border:2px solid var(--sacred); border-radius:6px; padding:36px 30px 28px; box-shadow:0 26px 46px -30px rgba(79,21,24,.5);}
+  .order-summary::before{content:"TWOJE ZAMÓWIENIE"; position:absolute; top:-13px; left:26px; background:var(--sacred); color:#fff; font-size:10.5px; font-weight:700; letter-spacing:.14em; padding:5px 14px; border-radius:20px;}
+  .order-summary h3{font-size:1.55rem; color:var(--sacred-deep); margin-bottom:22px;}
+  .summary-product{display:flex; gap:16px; align-items:center; padding-bottom:20px; margin-bottom:20px; border-bottom:1px solid var(--line);}
+  .summary-coin{flex:none; width:54px; height:72px; background-image:url('images/sequence1.png'); background-size:500% 200%; background-position:0% 0%;}
+  .summary-product-name{font-weight:600; font-size:15px;}
   .summary-product-desc{font-size:12.5px; color:var(--ink-soft); margin-top:3px;}
-  .summary-lines{list-style:none; display:grid; gap:12px; margin-bottom:20px;}
+  .summary-lines{list-style:none; display:grid; gap:11px; margin-bottom:20px;}
   .summary-lines li{display:flex; justify-content:space-between; gap:12px; font-size:14px; color:var(--ink-soft);}
-  .summary-lines li b{color:var(--ink); font-weight:700; font-family:'Work Sans',sans-serif; font-size:15px; letter-spacing:0;}
-  .summary-gifts{list-style:none; display:grid; gap:10px; margin-bottom:22px; padding:18px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .summary-gifts li{display:flex; gap:10px; align-items:flex-start; font-size:13.5px; color:var(--ink-soft);}
-  .summary-gifts svg{width:16px; height:16px; stroke:var(--gold-deep); flex:none; margin-top:2px;}
+  .summary-lines b{color:var(--ink); font-weight:700; font-size:15px;}
+  .summary-gifts{list-style:none; display:grid; gap:10px; padding:18px 0; margin-bottom:20px; border-block:1px solid var(--line);}
+  .summary-gifts li{display:grid; grid-template-columns:16px 1fr; gap:10px; font-size:13.5px; color:var(--ink-soft);}
+  .summary-gifts svg{width:16px; height:16px; margin-top:3px; stroke:var(--sacred); fill:none; stroke-width:1.8;}
   .summary-gifts b{color:var(--ink); font-weight:600;}
-  .summary-total{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;}
+  .summary-total{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;}
   .summary-total .lbl{font-size:14px; color:var(--ink-soft);}
-  .summary-total .val{font-family:'Work Sans',sans-serif; font-size:28px; color:var(--sacred); font-weight:700; letter-spacing:0;}
-  .summary-foot-note{font-size:12px; color:var(--ink-soft); line-height:1.55;}
+  .summary-total .val{font-size:30px; font-weight:700; color:var(--sacred); letter-spacing:-.01em;}
+  .summary-foot-note{font-size:12px; line-height:1.55; color:var(--ink-soft);}
 
-  .order-panel{
-    background:var(--ivory);
-    border:1px solid var(--line); border-radius:8px;
-    box-shadow:0 30px 60px -30px rgba(60,40,10,.3);
-    overflow:hidden;
-  }
-  .order-form{padding:36px 40px 40px;}
-  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;}
-  .form-row-3{grid-template-columns:1.3fr .8fr .8fr;}
-  .form-row-3 .form-field{min-width:0;}
-  .order-declaration{
-    font-size:14px; line-height:1.6; color:var(--ink-soft); background:var(--ivory-2);
-    border:1px solid var(--line); border-radius:6px; padding:16px 18px; margin-bottom:24px;
-  }
+  .order-panel{background:var(--paper); border:1px solid var(--line); border-radius:6px; box-shadow:0 30px 60px -34px rgba(60,40,10,.35);}
+  .order-form{padding:34px 36px 36px;}
+  .order-declaration{font-size:14px; line-height:1.6; color:var(--ink-soft); background:var(--ivory-2); border:1px solid var(--line); border-radius:4px; padding:16px 18px; margin-bottom:24px;}
   .order-declaration strong{display:block; color:var(--ink); font-size:15px; margin-bottom:8px;}
-  .form-field{display:flex; flex-direction:column; gap:7px; min-width:0;}
-  .form-field.full{grid-column:1/-1;}
-  .form-field label{font-size:12.5px; letter-spacing:.05em; color:var(--ink-soft); font-weight:600;}
-  .sr-only{
-    position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
-    clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;}
+  .form-row-3{grid-template-columns:minmax(0,1.2fr) minmax(0,.75fr) minmax(0,1.05fr);}
+  .form-field{min-width:0;}
+  .form-field.half{max-width:260px;}
+  .form-field input, .form-field select{
+    width:100%; height:50px; padding:0 14px; font:inherit; font-size:15px; color:var(--ink);
+    background:var(--ivory); border:1px solid var(--line-light); border-radius:3px; outline:none; appearance:none;
+    transition:border-color .2s var(--ease), box-shadow .2s var(--ease), background-color .2s var(--ease);
   }
-  .form-field input, .form-field select, .form-field textarea{
-    font-family:'Work Sans',sans-serif; font-size:15px; color:var(--ink);
-    background:var(--ivory); border:1px solid var(--line-light); border-radius:3px;
-    padding:12px 14px; outline:none;
-    transition:border-color .2s ease, box-shadow .2s ease;
-  }
-  .form-field textarea{resize:vertical; min-height:72px; font-family:inherit;}
-  .form-field input:focus, .form-field select:focus, .form-field textarea:focus{
-    border-color:var(--gold); box-shadow:0 0 0 3px rgba(169,121,31,.15);
-  }
-  .form-field input:invalid:not(:placeholder-shown){border-color:var(--sacred);}
-  .form-consent{display:flex; align-items:flex-start; gap:10px; margin:22px 0 26px; font-size:13.5px; color:var(--ink-soft);}
-  .form-consent input{margin-top:3px; accent-color:var(--gold-deep);}
-  .order-form .btn{width:100%; justify-content:center; padding:18px 30px; font-size:14px;}
-  .btn-phone{
-    display:flex; align-items:center; justify-content:center; text-align:center;
-    width:100%; margin-top:12px; padding:15px 24px;
-    background:var(--ivory-2); border:1px solid var(--line-light); border-radius:2px;
-    color:var(--ink-soft); font-size:13px; font-weight:600; letter-spacing:.01em;
-    cursor:default; user-select:text;
-  }
-  .form-note{text-align:center; font-size:12.5px; color:var(--ink-soft); margin-top:16px;}
-  .form-note a{color:var(--gold-deep); text-decoration:none; font-weight:600;}
-
+  .form-field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237c5817' stroke-width='1.6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:36px; cursor:pointer;}
+  .form-field input::placeholder{color:#8a7654;}
+  .form-field input:hover, .form-field select:hover{border-color:var(--gold);}
+  .form-field input:focus, .form-field select:focus{border-color:var(--sacred); background:#fff; box-shadow:0 0 0 3px rgba(124,42,36,.14);}
+  .form-field input:user-invalid, .form-field select:user-invalid{border-color:var(--sacred); background:#fdf1ee;}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+  .payu{font-size:12.5px; color:var(--ink-soft); margin:6px 0 18px;}
+  .payu b{color:var(--ink);}
+  .form-consent{display:flex; align-items:flex-start; gap:10px; margin-bottom:22px; font-size:13.5px; color:var(--ink-soft); cursor:pointer;}
+  .form-consent input{flex:none; width:17px; height:17px; margin-top:2px; accent-color:var(--sacred); cursor:pointer;}
+  .form-consent a{color:var(--sacred); font-weight:600;}
+  .order-form .btn{width:100%; padding:19px 30px; font-size:14px;}
+  .btn-phone{margin-top:12px; padding:15px 22px; text-align:center; background:var(--ivory-2); border:1px solid var(--line-light); border-radius:2px; font-size:13px; font-weight:600; color:var(--ink-soft); cursor:default;}
+  .form-note{text-align:center; font-size:12.5px; color:var(--ink-soft); margin-top:14px;}
+  .form-note.demo{font-weight:600;}
+  .form-note.legal{font-size:11.5px; line-height:1.6; margin-top:18px;}
+  .form-note a{color:var(--sacred); font-weight:600;}
+  .order-form.hide{display:none;}
   .order-success{display:none; padding:56px 40px; text-align:center;}
   .order-success.show{display:block;}
-  .order-form.hide{display:none;}
-  .order-success .check{
-    width:56px; height:56px; border-radius:50%; margin:0 auto 20px; background:var(--sacred);
-    display:flex; align-items:center; justify-content:center;
-  }
-  .order-success .check svg{width:26px; height:26px; stroke:var(--ivory); fill:none; stroke-width:2;}
-  .order-success h3{font-size:24px; margin-bottom:12px;}
-  .order-success p{color:var(--ink-soft); font-size:15px; max-width:420px; margin:0 auto;}
-  .order-success .ref{
-    margin-top:20px; display:inline-block; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--gold-deep); border:1px solid var(--line-light); padding:8px 16px; border-radius:2px;
-  }
-  @media (max-width:900px){
-    .order-layout{grid-template-columns:1fr; max-width:640px;}
-  }
-  @media (max-width:640px){
-    .form-row{grid-template-columns:1fr;}
-    .order-form{padding:28px 22px 32px;}
-    .order-summary{padding:26px 22px;}
-  }
+  .order-success .check{width:56px; height:56px; border-radius:50%; margin:0 auto 20px; background:var(--sacred); display:grid; place-items:center;}
+  .order-success .check svg{width:26px; height:26px; stroke:#fff; fill:none; stroke-width:2;}
+  .order-success h3{font-size:1.8rem; margin-bottom:12px;}
+  .order-success p{color:var(--ink-soft); font-size:15px; max-width:44ch; margin:0 auto;}
+  .order-success .ref{display:inline-block; margin-top:20px; padding:8px 16px; border:1px solid var(--line-light); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--gold-deep);}
 
-  /* ============ FOOTER ============ */
-  footer{background:linear-gradient(170deg, var(--sacred-2) 0%, var(--sacred-deep) 100%); padding:56px 0 26px;}
-  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:0;}
-  .foot-logo img{height:34px; margin-bottom:16px;}
-  .foot-grid p{color:#d8c3ae; font-size:14px; max-width:340px;}
-  .foot-contact span{display:block; color:#fff; font-size:14.5px; margin-bottom:10px;}
-  .foot-col h5{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin-bottom:16px; font-family:'Work Sans',sans-serif; font-weight:700;}
-  .foot-col a, .foot-col span{display:block; color:#d8c3ae; text-decoration:none; font-size:14.5px; margin-bottom:10px;}
-  .foot-col a:hover{color:var(--amber);}
-  .foot-bottom{border-top:1px solid rgba(232,200,118,.2); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12.5px; color:#c7ac93;}
+  /* ---------- footer ---------- */
+  footer{background:linear-gradient(170deg, var(--sacred-2) 0%, var(--sacred-deep) 100%); color:var(--on-sacred-soft); padding:60px 0 26px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px;}
+  .foot-contact img{width:180px; height:auto; margin-bottom:18px;}
+  .foot-contact span{display:block; color:#fff; font-size:14.5px; margin-bottom:8px;}
+  .foot-col h5{font-family:'Work Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin-bottom:16px;}
+  .foot-col a, .foot-col span{display:block; color:var(--on-sacred-soft); text-decoration:none; font-size:14.5px; margin-bottom:9px;}
+  .foot-col a:hover{color:var(--amber); text-decoration:underline;}
+  .payment-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:36px; padding-top:26px; position:relative;}
+  .payment-row::before, .foot-bottom::before{content:""; position:absolute; top:0; left:24px; right:24px; height:1px; background:var(--line-on-sacred);}
+  .payment-badge{display:inline-flex; align-items:center; gap:6px; background:rgba(0,0,0,.18); border:1px solid rgba(232,200,118,.35); color:#ecdfca; font-size:11.5px; font-weight:600; padding:8px 14px; border-radius:20px;}
+  .distributor-note{margin-top:26px; padding-top:22px; border-top:1px solid var(--line-on-sacred); font-size:11.5px; line-height:1.7; color:#cbb29a;}
+  .foot-bottom{position:relative; margin-top:22px; padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12.5px; color:#cbb29a;}
 
-  .payment-row{
-    display:flex; flex-wrap:wrap; gap:10px; margin-top:34px; padding-top:26px;
-    border-top:1px solid rgba(232,200,118,.2);
-  }
-  .payment-badge{
-    display:inline-flex; align-items:center; gap:6px;
-    background:rgba(0,0,0,.18); border:1px solid rgba(232,200,118,.35); color:#e8dcc8;
-    font-size:11.5px; font-weight:600; letter-spacing:.02em;
-    padding:8px 14px; border-radius:20px;
-  }
-  .distributor-note{
-    margin-top:26px; padding-top:22px; border-top:1px solid rgba(232,200,118,.2);
-    font-size:11.5px; line-height:1.7; color:#c7ac93; opacity:.9;
-  }
-
+  /* ---------- responsive ---------- */
+  @media (min-width:641px){ .spec-table td:first-child{white-space:nowrap;} }
   @media (max-width:980px){
-    .hero .wrap{grid-template-columns:1fr; text-align:left; min-height:0;}
-    .tablet-stage{padding-top:10px; height:auto;}
-    .hero-photo-frame{height:auto;}
-    .hero-photo-frame img{height:auto; width:100%; max-width:360px;}
-    .about-grid, .spec-grid{grid-template-columns:1fr; gap:40px;}
-    .about-visual{height:auto; min-height:280px;}
-    .benefits-grid{grid-template-columns:1fr;}
-    .reviews-grid{grid-template-columns:1fr; gap:32px;}
-    .foot-grid{grid-template-columns:1fr; gap:30px;}
-    .coins-grid{grid-template-columns:repeat(5,1fr);}
-    .steps{grid-template-columns:repeat(2,1fr); row-gap:36px;}
-    .steps::before{display:none;}
+    section{padding:80px 0;}
+    .hero .wrap{grid-template-columns:1fr; gap:24px; padding-top:40px;}
+    .hero-copy{max-width:none;}
+    .hero-visual img{height:auto; width:100%; max-width:420px;}
+    .about .wrap, .spec .wrap, .benefits .wrap{grid-template-columns:1fr; gap:48px;}
+    .reviews-grid{grid-template-columns:1fr; max-width:560px; margin:0 auto;}
+    .steps{grid-template-columns:repeat(2,minmax(0,1fr)); row-gap:44px;}
+    .step::after{display:none;}
+    .order-layout{grid-template-columns:1fr; max-width:640px;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .foot-contact{grid-column:1/-1;}
   }
   @media (max-width:640px){
+    body{font-size:16px;}
     section{padding:64px 0;}
-    .coins-grid{grid-template-columns:repeat(5,1fr); gap:10px;}
-    .coin span{font-size:20px;}
-    .coin-label{font-size:10px;}
-    .head-contact{display:none;}
-    .hero .wrap{padding-top:52px;}
-    .halo{width:340px; height:340px;}
+    .head-contact .hc-text{display:none;}
+    .logo img{height:46px;}
+    .btn-sm{padding:11px 16px; font-size:11px;}
+    .spec-visual img{width:100%; margin:0;}
+    .topbar{font-size:11.5px;}
+    .cta-row{flex-direction:column; align-items:flex-start; gap:18px;}
+    .price-tag{padding-left:0; border-left:0;}
+    .plate{display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:16px; padding-bottom:12px; margin:0 -24px; padding-inline:24px; scrollbar-width:thin;}
+    .plate li{flex:0 0 42%; scroll-snap-align:start;}
+    .certificate, .notice{padding:34px 24px 30px;}
     .steps{grid-template-columns:1fr;}
-    .cta-row{flex-direction:column; align-items:flex-start !important;}
+    .form-row, .form-row-3{grid-template-columns:1fr;}
+    .form-field.half{max-width:none;}
+    .order-form{padding:26px 20px 30px;}
+    .order-summary{padding:34px 20px 24px;}
+    .foot-grid{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .js .strike{opacity:1; transform:none; filter:none;}
+    *,*::before,*::after{transition-duration:0s !important;}
   }
 </style>
+<script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
+<body id="top">
 <!--
-  DIRECTION CONTRACT
-  THESIS: Dziesięć przykazań jako tablica ze złoconego kamienia w świetle katedry — jasna, ciepła, świąteczna
-  scena, nie mroczna krypta. Odróżnia się od siostrzanych LP (Magia Złota / bursztyn, HZ / petrol-rdza) tonem
-  sakralnym: kość słoniowa, pergamin, złoto liściowe, głęboka czerwień liturgiczna jako akcent.
-  OWN-WORLD: tło ivory/pergamin (#faf3e2 → #ecdcae), złoto (#a9791f / #e4c266), akcent sacred red (#7c2a24).
-  Tło hero to świetlna scena wyłącznie ze złotej poświaty CSS (bez zdjęć realnych instytucji religijnych, by
-  uniknąć sugerowania afiliacji); makro grawerunków (amber-esklep*.jpg) jako faktura rzemiosła w sekcjach
-  O kolekcji i Specyfikacja — żadna sekcja nie zostaje pusta.
-  STORY: odwiedzający rozumie limitowaną, kolekcjonerską serię dziesięciu złotych numizmatów, zamawia pierwszy
-  egzemplarz za 299 zł, wie że kolejne dochodzą co miesiąc w tej samej cenie, ma 14 dni na decyzję i może
-  zrezygnować w każdej chwili.
-  FIRST VIEWPORT: jasna scena z tłem architektury sakralnej, tablica z wyrytym "X" w świetle glorii, nagłówek
-  i CTA po lewej.
-  FORM: świetlna tablica / rytownictwo numizmatyczne w tonie sakralnym, direction wybrana bezpośrednio na
-  żądanie użytkownika (redesign z wersji ciemnej — jaśniej i cieplej).
+  DIRECTION CONTRACT (przebudowa, Opus 5.5)
+  THESIS: katalog aukcyjny i certyfikat mennicy — kolekcja pokazana jak plansza numizmatyczna, specyfikacja jak
+  certyfikat, warunki jak urzędowe zawiadomienie. Odrzuca szablon "ikona+nagłówek+tekst w trzech kafelkach".
+  OWN-WORLD: kość słoniowa / pergamin, złoto liściowe w cienkich liniach, bordo (#7c2a24 → #4f1518) na przyciskach,
+  opiniach, krokach i stopce. Cormorant (bez kapitalików) + Work Sans; ceny w Work Sans z cyframi tabelarycznymi.
+  STORY: limitowana seria 10 złotych numizmatów, pierwszy za 299 zł, kolejne co miesiąc, 14 dni na zwrot.
+  FIRST VIEWPORT: po lewej DZIESIĘĆ PRZYKAZAŃ + CTA i cena, po prawej baner produktu na pełną wysokość sekcji.
+  FORM: rozbudowa istniejącego świata (kierunek ustalony poprawkami użytkownika), wszystkie teksty bez zmian.
   FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
 -->
 
 <div class="topbar">
-  <div class="wrap"><b>Limitowana edycja</b> &nbsp;•&nbsp; Złoto próby 999,9 &nbsp;•&nbsp; Wyłączny polski dystrybutor: AZ Aurum</div>
+  <div class="wrap"><b>Limitowana edycja</b><i></i>Złoto próby 999,9<i></i>Wyłączny polski dystrybutor: AZ Aurum</div>
 </div>
 
 <header class="site">
   <div class="wrap">
-    <div class="logo"><img src="images/azlogo-v1.png" alt="AZ Aurum — Numizmatyka Adam Zieliński"></div>
+    <a class="logo" href="#top"><img src="images/azlogo-v1.png" alt="AZ Aurum — Numizmatyka Adam Zieliński"></a>
     <div class="head-contact">
-      <a href="tel:784622333"><span class="head-phone">784 622 333</span></a>
-      <span>pon–pt 9:00–17:00</span>
-      <a href="#zamow" class="btn btn-sm" style="padding:11px 24px;font-size:12px;">Tak, zamawiam</a>
+      <a class="hc-text" href="tel:784622333"><span class="head-phone num">784 622 333</span></a>
+      <span class="hc-text">pon–pt 9:00–17:00</span>
+      <a href="#zamow" class="btn btn-sm">Tak, zamawiam</a>
     </div>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-bg"></div>
+<main>
+<section class="hero" style="padding:0;">
   <div class="wrap">
     <div class="hero-copy">
-      <div class="eyebrow">Kolekcja numizmatyczna</div>
+      <div class="runhead">Kolekcja numizmatyczna</div>
       <h1>Dziesięć Przykazań<em>Ściśle limitowana kolekcja</em></h1>
       <p class="lead">Ściśle limitowana kolekcja złotych numizmatów wybitych w czystym złocie próby 999.
       Złote numizmaty kolekcjonerskie w kształcie sztabki.</p>
       <div class="cta-row">
         <a href="#zamow" class="btn">Tak, zamawiam</a>
-        <div class="price-tag">Pierwszy egzemplarz<b>299 zł</b></div>
+        <div class="price-tag">Pierwszy egzemplarz<b class="num">299 zł</b></div>
       </div>
-      <p style="font-size:12.5px; color:var(--ink-soft); max-width:480px; margin-bottom:20px;">
+      <p class="fine">
         Jednocześnie rozpoczynam kolekcjonowanie złotych numizmatów z limitowanej kolekcji „Dziesięć Przykazań”.
         Kolejne numizmaty otrzymam w miesięcznych odstępach wraz z rachunkiem do opłacenia. Koszty pakowania
         i przesyłki 14,99 zł. Mam 14 dni na zapoznanie się z każdym przesłanym numizmatem.
       </p>
-      <div class="trust-mini">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Dedykowane pudełko kolekcjonerskie GRATIS</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Certyfikat autentyczności GRATIS</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Kapsuła ochronna GRATIS</span>
-      </div>
+      <ul class="gratis">
+        <li><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Dedykowane pudełko kolekcjonerskie GRATIS</li>
+        <li><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Certyfikat autentyczności GRATIS</li>
+        <li><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Kapsuła ochronna GRATIS</li>
+      </ul>
     </div>
-    <div class="tablet-stage">
-      <div class="halo"></div>
-      <div class="hero-photo-frame">
-        <img src="images/baner-hero2.png" alt="Kolekcja numizmatów Dziesięć Przykazań — złote medale ze scenami biblijnymi, złoto próby 999, pudełko kolekcjonerskie">
-      </div>
+    <div class="hero-visual">
+      <img src="images/baner-hero2.png" alt="Kolekcja numizmatów Dziesięć Przykazań — złote medale ze scenami biblijnymi, złoto próby 999, pudełko kolekcjonerskie" fetchpriority="high">
     </div>
   </div>
 </section>
 
-<section class="collection-band tight">
+<section class="collection">
   <div class="wrap">
-    <div class="section-head center">
-      <div class="eyebrow" style="justify-content:center;">Cała kolekcja</div>
-      <h2>Dziesięć przykazań, jedna opowieść</h2>
-      <p>Każdego miesiąca odkrywasz kolejny numizmat — aż do skompletowania pełnej kolekcji dziesięciu przykazań.</p>
+    <div class="center-head">
+      <div class="runhead center">Cała kolekcja</div>
+      <h2 class="display">Dziesięć przykazań, jedna opowieść</h2>
+      <p class="lede">Każdego miesiąca odkrywasz kolejny numizmat — aż do skompletowania pełnej kolekcji dziesięciu przykazań.</p>
     </div>
-    <div class="coins-grid">
-      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Przykazanie 1</div></div>
-      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Przykazanie 2</div></div>
-      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Przykazanie 3</div></div>
-      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Przykazanie 4</div></div>
-      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Przykazanie 5</div></div>
-      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Przykazanie 6</div></div>
-      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Przykazanie 7</div></div>
-      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Przykazanie 8</div></div>
-      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Przykazanie 9</div></div>
-      <div class="coin-cell"><div class="coin"></div><div class="coin-label">Przykazanie 10</div></div>
-    </div>
+    <ol class="plate">
+      <li class="strike" style="--i:0"><div class="coin"></div><div class="coin-label">Przykazanie 1</div></li>
+      <li class="strike" style="--i:1"><div class="coin"></div><div class="coin-label">Przykazanie 2</div></li>
+      <li class="strike" style="--i:2"><div class="coin"></div><div class="coin-label">Przykazanie 3</div></li>
+      <li class="strike" style="--i:3"><div class="coin"></div><div class="coin-label">Przykazanie 4</div></li>
+      <li class="strike" style="--i:4"><div class="coin"></div><div class="coin-label">Przykazanie 5</div></li>
+      <li class="strike" style="--i:5"><div class="coin"></div><div class="coin-label">Przykazanie 6</div></li>
+      <li class="strike" style="--i:6"><div class="coin"></div><div class="coin-label">Przykazanie 7</div></li>
+      <li class="strike" style="--i:7"><div class="coin"></div><div class="coin-label">Przykazanie 8</div></li>
+      <li class="strike" style="--i:8"><div class="coin"></div><div class="coin-label">Przykazanie 9</div></li>
+      <li class="strike" style="--i:9"><div class="coin"></div><div class="coin-label">Przykazanie 10</div></li>
+    </ol>
   </div>
 </section>
 
-<section>
-  <div class="wrap about-grid">
-    <div class="about-visual">
-      <img src="images/produkt_bez_tla_wyostrzone_1500px.png" alt="Otwarta szkatuła kolekcjonerska z dziesięcioma numizmatami serii Dziesięć Przykazań, certyfikatem autentyczności i kapsułami ochronnymi">
-      <div class="overlay-quote"><p>„To podziękowanie za zaufanie i symboliczny gest w duchu kolekcji, której przesłaniem jest dobro, wiara i uczciwość.”</p></div>
-    </div>
+<section class="about">
+  <div class="wrap">
+    <figure>
+      <img src="images/produkt_bez_tla_wyostrzone_1500px.png" alt="Otwarta szkatuła kolekcjonerska z dziesięcioma numizmatami serii Dziesięć Przykazań, certyfikatem autentyczności i kapsułami ochronnymi" decoding="async">
+      <figcaption>„To podziękowanie za zaufanie i symboliczny gest w duchu kolekcji, której przesłaniem jest dobro, wiara i uczciwość.”</figcaption>
+    </figure>
     <div class="about-copy">
-      <div class="eyebrow">O kolekcji</div>
-      <h2 style="margin-bottom:22px;">Dziesięć Przykazań — złota kolekcja numizmatyczna</h2>
-      <p>Ściśle limitowana kolekcja obejmuje 10 unikalnych numizmatów wykonanych z czystego złota próby 999.</p>
+      <div class="runhead">O kolekcji</div>
+      <h2 class="display">Dziesięć Przykazań — złota kolekcja numizmatyczna</h2>
+      <p class="first">Ściśle limitowana kolekcja obejmuje 10 unikalnych numizmatów wykonanych z czystego złota próby 999.</p>
       <p>Kolekcja została zainspirowana jednym z najbardziej rozpoznawalnych motywów kultury europejskiej —
       symbolem zasad, odpowiedzialności i wartości przekazywanych z pokolenia na pokolenie.</p>
       <p>Każdy z dziesięciu numizmatów przedstawia jeden motyw z serii. Całość tworzy elegancki zestaw
       kolekcjonerski, w którym szlachetne złoto łączy się z klasyczną symboliką i precyzją wykonania.</p>
-      <p style="font-size:13px; color:var(--ink-soft); margin-top:24px; margin-bottom:0; padding-top:18px; border-top:1px solid var(--line);">
+      <p class="disclaimer">
         Produkt ma charakter kolekcjonerski i numizmatyczny. Kolekcja nie jest wydawana, sygnowana ani
         rekomendowana przez żaden kościół, związek wyznaniowy ani organizację religijną.
       </p>
@@ -520,16 +437,16 @@
   </div>
 </section>
 
-<section class="spec-band">
-  <div class="spec-bg"><img src="images/amber-esklep1.jpg" alt=""></div>
-  <div class="wrap spec-grid">
-    <div class="spec-coin-visual">
-      <div class="big-coin"><img src="images/rewers.png" alt="Rewers numizmatu — Mojżesz z tablicami Dekalogu, złoto próby 999,9, 1/200 uncji"></div>
+<section class="spec">
+  <div class="spec-texture"><img src="images/amber-esklep1.jpg" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <div class="spec-visual">
+      <img src="images/rewers.png" alt="Rewers numizmatu — Mojżesz z tablicami Dekalogu, złoto próby 999,9, 1/200 uncji" decoding="async">
     </div>
-    <div>
-      <div class="eyebrow">Specyfikacja techniczna</div>
-      <h2 style="margin-bottom:28px;">Specyfikacje złotych numizmatów z kolekcji „Dziesięć Przykazań”</h2>
-      <table class="spec-table">
+    <div class="certificate">
+      <div class="runhead">Specyfikacja techniczna</div>
+      <h2>Specyfikacje złotych numizmatów z kolekcji „Dziesięć Przykazań”</h2>
+      <table class="spec-table num">
         <tr><td>Metal</td><td>Złoto</td></tr>
         <tr><td>Czystość kruszcu</td><td>9999</td></tr>
         <tr><td>Waga</td><td>1/200 uncji (0,155 g)</td></tr>
@@ -541,300 +458,254 @@
   </div>
 </section>
 
-<section class="reviews-band tight">
+<section class="reviews on-sacred">
   <div class="wrap">
-    <div class="section-head center" style="margin-bottom:36px;">
-      <div class="eyebrow" style="justify-content:center;">Opinie klientów</div>
-      <h2 style="font-size:clamp(1.6rem,2.6vw,2.1rem);">Zaufali nam kolekcjonerzy w całej Polsce</h2>
+    <div class="center-head" style="margin-bottom:44px;">
+      <div class="runhead center">Opinie klientów</div>
+      <h2 class="display">Zaufali nam kolekcjonerzy w całej Polsce</h2>
     </div>
     <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-        </div>
-        <p class="review-quote">„Wykonanie numizmatu przerosło moje oczekiwania — waga, wykończenie, certyfikat w komplecie. Czekam na kolejny egzemplarz.”</p>
-        <div class="review-author">Krzysztof M.<span>Kolekcjoner, Kraków</span></div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-        </div>
-        <p class="review-quote">„Zamówienie i dostawa przebiegły bez problemu, obsługa telefoniczna bardzo pomocna przy pytaniach o kolejne raty kolekcji.”</p>
-        <div class="review-author">Anna W.<span>Klientka, Wrocław</span></div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg>
-        </div>
-        <p class="review-quote">„Szkatuła kolekcjonerska prezentuje się elegancko, świetny prezent i zaczątek własnej kolekcji numizmatycznej.”</p>
-        <div class="review-author">Piotr S.<span>Kolekcjoner, Gdańsk</span></div>
-      </div>
+      <figure class="review">
+        <div class="stars" aria-label="Ocena 5 na 5"><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg></div>
+        <blockquote>„Wykonanie numizmatu przerosło moje oczekiwania — waga, wykończenie, certyfikat w komplecie. Czekam na kolejny egzemplarz.”</blockquote>
+        <cite>Krzysztof M.<span>Kolekcjoner, Kraków</span></cite>
+      </figure>
+      <figure class="review">
+        <div class="stars" aria-label="Ocena 5 na 5"><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg></div>
+        <blockquote>„Zamówienie i dostawa przebiegły bez problemu, obsługa telefoniczna bardzo pomocna przy pytaniach o kolejne raty kolekcji.”</blockquote>
+        <cite>Anna W.<span>Klientka, Wrocław</span></cite>
+      </figure>
+      <figure class="review">
+        <div class="stars" aria-label="Ocena 5 na 5"><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 7.5l6.4-.6z"/></svg></div>
+        <blockquote>„Szkatuła kolekcjonerska prezentuje się elegancko, świetny prezent i zaczątek własnej kolekcji numizmatycznej.”</blockquote>
+        <cite>Piotr S.<span>Kolekcjoner, Gdańsk</span></cite>
+      </figure>
     </div>
-    <p style="text-align:center; font-size:11.5px; color:#c7ac93; opacity:.85; margin-top:28px;">Przykładowe opinie na potrzeby strony demonstracyjnej — przed uruchomieniem kampanii zastąp realnymi recenzjami klientów.</p>
+    <p class="demo-note">Przykładowe opinie na potrzeby strony demonstracyjnej — przed uruchomieniem kampanii zastąp realnymi recenzjami klientów.</p>
   </div>
 </section>
 
-<section>
+<section class="benefits">
   <div class="wrap">
-    <div class="section-head center">
-      <div class="eyebrow" style="justify-content:center;">Złoto, które łączy pokolenia</div>
-      <h2>Każdy numizmat trafia do Ciebie kompletny</h2>
-      <p>Każdy numizmat z kolekcji „Dziesięć Przykazań” wybity został w czystym złocie próby 999, w najwyższej
+    <div>
+      <div class="runhead">Złoto, które łączy pokolenia</div>
+      <h2 class="display">Każdy numizmat trafia do Ciebie kompletny</h2>
+      <p class="lede">Każdy numizmat z kolekcji „Dziesięć Przykazań” wybity został w czystym złocie próby 999, w najwyższej
       jakości menniczej. Precyzyjne detale, pełne światła i symboliki sprawiają, że każdy egzemplarz staje się
       małym dziełem sztuki. To propozycja dla osób, które cenią numizmaty o silnym znaczeniu symbolicznym,
       eleganckiej formie i ponadczasowym charakterze — kolekcja może być również wyjątkową pamiątką na ważne
       uroczystości rodzinne.</p>
     </div>
-  </div>
-  <div class="wrap" style="padding:0;">
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.2L20 8l-4 4 1 5.8L12 15l-5 2.8 1-5.8-4-4 5.6-.8L12 2z"/></svg></div>
-        <h3>Certyfikat autentyczności</h3>
-        <p>Do każdego numizmatu dołączamy imienny certyfikat potwierdzający próbę i pochodzenie złota — bezpłatnie.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="12" cy="12" r="4.5"/></svg></div>
-        <h3>Kapsuła ochronna</h3>
-        <p>Numizmat zamknięty w przezroczystej kapsule chroniącej powierzchnię i połysk przez lata.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg></div>
-        <h3>Pudełko kolekcjonerskie</h3>
-        <p>Dedykowane, wyściełane pudełko na całą serię dziesięciu przykazań — gratis przy zamówieniu.</p>
-      </div>
-    </div>
+    <ul class="inclusions">
+      <li>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.2L20 8l-4 4 1 5.8L12 15l-5 2.8 1-5.8-4-4 5.6-.8L12 2z"/></svg></div>
+        <div><h3>Certyfikat autentyczności</h3><p>Do każdego numizmatu dołączamy imienny certyfikat potwierdzający próbę i pochodzenie złota — bezpłatnie.</p></div>
+      </li>
+      <li>
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="12" cy="12" r="4.5"/></svg></div>
+        <div><h3>Kapsuła ochronna</h3><p>Numizmat zamknięty w przezroczystej kapsule chroniącej powierzchnię i połysk przez lata.</p></div>
+      </li>
+      <li>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg></div>
+        <div><h3>Pudełko kolekcjonerskie</h3><p>Dedykowane, wyściełane pudełko na całą serię dziesięciu przykazań — gratis przy zamówieniu.</p></div>
+      </li>
+    </ul>
   </div>
 </section>
 
-<section class="steps-band">
+<section class="how on-sacred">
   <div class="wrap">
-    <div class="section-head center">
-      <div class="eyebrow" style="justify-content:center;">Jak to działa</div>
-      <h2>Kolekcja rośnie razem z Tobą</h2>
+    <div class="center-head">
+      <div class="runhead center">Jak to działa</div>
+      <h2 class="display">Kolekcja rośnie razem z Tobą</h2>
     </div>
-    <div class="steps">
-      <div class="step">
+    <ol class="steps">
+      <li class="step">
         <div class="step-n">1</div>
         <h4>Zamawiasz pierwszy numizmat</h4>
         <p>Płacisz 299 zł + 14,99 zł wysyłki i pakowania za pierwszy egzemplarz kolekcji.</p>
-      </div>
-      <div class="step">
+      </li>
+      <li class="step">
         <div class="step-n">2</div>
         <h4>Co miesiąc kolejny</h4>
         <p>Co miesiąc otrzymujesz następny numizmat z serii w tej samej cenie 299 zł. Wysyłkę możesz zatrzymać
         w każdej chwili jednym telefonem lub mailem.</p>
-      </div>
-      <div class="step">
+      </li>
+      <li class="step">
         <div class="step-n">3</div>
         <h4>Masz 14 dni na decyzję</h4>
         <p>Oglądasz i oceniasz każdy egzemplarz — możesz go zwrócić bez podania przyczyny.</p>
-      </div>
-      <div class="step">
+      </li>
+      <li class="step">
         <div class="step-n">4</div>
         <h4>Rezygnujesz, kiedy chcesz</h4>
         <p>Kolekcjonowanie możesz przerwać w dowolnym momencie, bez zobowiązań na przyszłość.</p>
-      </div>
-    </div>
+      </li>
+    </ol>
   </div>
 </section>
 
-<section class="terms-band">
+<section class="terms">
   <div class="wrap">
-    <div class="terms-copy">
-      <div class="eyebrow" style="justify-content:center;">Ważna informacja!</div>
-      <h2>Zero ryzyka, pełna swoboda</h2>
+    <div class="notice">
+      <div class="runhead center">Ważna informacja!</div>
+      <h2 class="display">Zero ryzyka, pełna swoboda</h2>
       <p>Dokonując zakupu złotego numizmatu z Przykazaniem w cenie 299 zł jednocześnie rozpoczynam
       kolekcjonowanie złotych numizmatów z ekskluzywnej, limitowanej kolekcji „Dziesięć Przykazań”. Kolejne
       9 złotych numizmatów otrzymam w miesięcznych odstępach, każdy w cenie 299 zł. Koszt pakowania i wysyłki
       każdego numizmatu to 14,99 zł. Płatności za kolejne numizmaty dokonam na podstawie rachunku dołączonego
       do przesyłki.</p>
       <ul class="terms-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg>Zbieranie kolekcji mogę przerwać lub zawiesić w dowolnym momencie — wystarczy poinformować o tym AZ Aurum e-mailem lub telefonicznie</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg>Mam 14 dni na zapoznanie się z każdym numizmatem i prawo do jego zwrotu wraz ze zwrotem kosztów zakupu</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg>Zwrot pieniędzy następuje w ciągu 14 dni od otrzymania przez AZ Aurum nieuszkodzonego numizmatu; koszty przesyłki zwrotnej pokrywa zamawiający</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg>Ze względu na nieustannie rosnące ceny złota, AZ Aurum zastrzega sobie możliwość zmiany cen kolejnych numizmatów w kolekcji</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>Zbieranie kolekcji mogę przerwać lub zawiesić w dowolnym momencie — wystarczy poinformować o tym AZ Aurum e-mailem lub telefonicznie</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>Mam 14 dni na zapoznanie się z każdym numizmatem i prawo do jego zwrotu wraz ze zwrotem kosztów zakupu</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>Zwrot pieniędzy następuje w ciągu 14 dni od otrzymania przez AZ Aurum nieuszkodzonego numizmatu; koszty przesyłki zwrotnej pokrywa zamawiający</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>Ze względu na nieustannie rosnące ceny złota, AZ Aurum zastrzega sobie możliwość zmiany cen kolejnych numizmatów w kolekcji</span></li>
       </ul>
     </div>
   </div>
 </section>
 
-<section class="cta-final" id="zamow">
+<section class="order" id="zamow">
   <div class="wrap">
-    <div class="intro">
-      <div class="eyebrow" style="justify-content:center;">Zamawiam</div>
+    <div class="center-head">
+      <div class="runhead center">Zamawiam</div>
       <h2>Tak, zamawiam</h2>
-      <p>Złoty numizmat kolekcjonerski Pierwsze Przykazanie w cenie 299 zł. Certyfikat autentyczności, kapsuła
+      <p class="lede">Złoty numizmat kolekcjonerski Pierwsze Przykazanie w cenie 299 zł. Certyfikat autentyczności, kapsuła
       ochronna i dedykowane pudełko kolekcjonerskie zawsze GRATIS.</p>
-      <div class="price-block">
+      <div class="price-block num">
         <span class="now">299 zł</span>
         <span class="unit">+ 14,99 zł wysyłki i pakowania · pełna seria 10 numizmatów: 2990 zł + wysyłka</span>
       </div>
     </div>
 
     <div class="order-layout">
-      <div class="order-summary">
+      <aside class="order-summary">
         <h3>Podsumowanie zamówienia</h3>
         <div class="summary-product">
-          <div class="summary-coin"></div>
+          <div class="summary-coin" role="img" aria-label="Numizmat Przykazanie I"></div>
           <div>
             <div class="summary-product-name">Przykazanie I — Dekalog</div>
             <div class="summary-product-desc">Złoto próby 999,9 · 1/200 uncji (0,155 g) · 30 × 42 mm</div>
           </div>
         </div>
-        <ul class="summary-lines">
+        <ul class="summary-lines num">
           <li><span>Numizmat I</span><b>299 zł</b></li>
           <li><span>Wysyłka i pakowanie</span><b>14,99 zł</b></li>
           <li><span>Ubezpieczenie przesyłki</span><b>w cenie</b></li>
         </ul>
         <ul class="summary-gifts">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg><span><b>Certyfikat autentyczności</b> — imienny, potwierdzający próbę złota</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg><span><b>Kapsuła ochronna</b> — zabezpiecza połysk numizmatu</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg><span><b>Szkatuła kolekcjonerska</b> — wyściełane pudełko na całą serię</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg><span><b>Przesyłka ubezpieczona</b> — pełna wartość paczki do doręczenia</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><b>Certyfikat autentyczności</b> — imienny, potwierdzający próbę złota</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><b>Kapsuła ochronna</b> — zabezpiecza połysk numizmatu</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><b>Szkatuła kolekcjonerska</b> — wyściełane pudełko na całą serię</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><b>Przesyłka ubezpieczona</b> — pełna wartość paczki do doręczenia</span></li>
         </ul>
-        <div class="summary-total">
+        <div class="summary-total num">
           <span class="lbl">Do zapłaty dziś</span>
           <span class="val">313,99 zł</span>
         </div>
         <p class="summary-foot-note">Kolejne numizmaty z serii wysyłamy co miesiąc, każdy w tej samej cenie
         299 zł + 14,99 zł wysyłki. Pełna kolekcja: 2990 zł + wysyłka. Rezygnacja w dowolnym momencie,
         bez opłat — telefonicznie lub mailowo.</p>
-      </div>
+      </aside>
 
       <div class="order-panel">
-      <form class="order-form" id="orderForm" novalidate>
-        <p class="order-declaration">
-          <strong>Tak, zamawiam złoty numizmat kolekcjonerski Pierwsze Przykazanie w cenie 299 zł.</strong>
-          <span>Jednocześnie rozpoczynam kolekcjonowanie złotych numizmatów z limitowanej kolekcji „Dziesięć Przykazań”.
-          Kolejne numizmaty otrzymam w miesięcznych odstępach wraz z rachunkiem do opłacenia. Koszty pakowania
-          i przesyłki 14,99 zł. Mam 14 dni na zapoznanie się z każdym przesłanym numizmatem.</span>
-        </p>
+        <form class="order-form" id="orderForm" novalidate>
+          <p class="order-declaration">
+            <strong>Tak, zamawiam złoty numizmat kolekcjonerski Pierwsze Przykazanie w cenie 299 zł.</strong>
+            <span>Jednocześnie rozpoczynam kolekcjonowanie złotych numizmatów z limitowanej kolekcji „Dziesięć Przykazań”.
+            Kolejne numizmaty otrzymam w miesięcznych odstępach wraz z rachunkiem do opłacenia. Koszty pakowania
+            i przesyłki 14,99 zł. Mam 14 dni na zapoznanie się z każdym przesłanym numizmatem.</span>
+          </p>
 
-        <div class="form-row">
-          <div class="form-field full" style="max-width:260px;">
-            <label for="f-plec" class="sr-only">Wybierz płeć *</label>
-            <select id="f-plec" name="plec" required>
-              <option value="" disabled selected>Wybierz płeć *</option>
-              <option value="pan">Pan</option>
-              <option value="pani">Pani</option>
-            </select>
+          <div class="form-row">
+            <div class="form-field half">
+              <label for="f-plec" class="sr-only">Wybierz płeć *</label>
+              <select id="f-plec" name="plec" required>
+                <option value="" disabled selected>Wybierz płeć *</option>
+                <option value="pan">Pan</option>
+                <option value="pani">Pani</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="f-imie" class="sr-only">Imię *</label>
-            <input id="f-imie" name="imie" type="text" placeholder="Imię *" required>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-imie" class="sr-only">Imię *</label>
+              <input id="f-imie" name="imie" type="text" placeholder="Imię *" autocomplete="given-name" required>
+            </div>
+            <div class="form-field">
+              <label for="f-nazwisko" class="sr-only">Nazwisko *</label>
+              <input id="f-nazwisko" name="nazwisko" type="text" placeholder="Nazwisko *" autocomplete="family-name" required>
+            </div>
           </div>
-          <div class="form-field">
-            <label for="f-nazwisko" class="sr-only">Nazwisko *</label>
-            <input id="f-nazwisko" name="nazwisko" type="text" placeholder="Nazwisko *" required>
+          <div class="form-row form-row-3">
+            <div class="form-field">
+              <label for="f-ulica" class="sr-only">Ulica *</label>
+              <input id="f-ulica" name="ulica" type="text" placeholder="Ulica *" autocomplete="address-line1" required>
+            </div>
+            <div class="form-field">
+              <label for="f-nrdomu" class="sr-only">Nr domu *</label>
+              <input id="f-nrdomu" name="nrdomu" type="text" placeholder="Nr domu *" required>
+            </div>
+            <div class="form-field">
+              <label for="f-nrmieszkania" class="sr-only">Nr mieszkania</label>
+              <input id="f-nrmieszkania" name="nrmieszkania" type="text" placeholder="Nr mieszkania" autocomplete="address-line2">
+            </div>
           </div>
-        </div>
-        <div class="form-row form-row-3">
-          <div class="form-field">
-            <label for="f-ulica" class="sr-only">Ulica *</label>
-            <input id="f-ulica" name="ulica" type="text" placeholder="Ulica *" required>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-kod" class="sr-only">Kod pocztowy *</label>
+              <input id="f-kod" name="kod" type="text" placeholder="Kod pocztowy *" pattern="\d{2}-\d{3}" inputmode="numeric" autocomplete="postal-code" required>
+            </div>
+            <div class="form-field">
+              <label for="f-miasto" class="sr-only">Miejscowość *</label>
+              <input id="f-miasto" name="miasto" type="text" placeholder="Miejscowość *" autocomplete="address-level2" required>
+            </div>
           </div>
-          <div class="form-field">
-            <label for="f-nrdomu" class="sr-only">Nr domu *</label>
-            <input id="f-nrdomu" name="nrdomu" type="text" placeholder="Nr domu *" required>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-email" class="sr-only">E-mail *</label>
+              <input id="f-email" name="email" type="email" placeholder="E-mail *" autocomplete="email" required>
+            </div>
+            <div class="form-field">
+              <label for="f-tel" class="sr-only">Nr telefonu *</label>
+              <input id="f-tel" name="telefon" type="tel" placeholder="Nr telefonu *" pattern="[0-9 +]{7,15}" autocomplete="tel" required>
+            </div>
           </div>
-          <div class="form-field">
-            <label for="f-nrmieszkania" class="sr-only">Nr mieszkania</label>
-            <input id="f-nrmieszkania" name="nrmieszkania" type="text" placeholder="Nr mieszkania">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="f-kod" class="sr-only">Kod pocztowy *</label>
-            <input id="f-kod" name="kod" type="text" placeholder="Kod pocztowy *" pattern="\d{2}-\d{3}" required>
-          </div>
-          <div class="form-field">
-            <label for="f-miasto" class="sr-only">Miejscowość *</label>
-            <input id="f-miasto" name="miasto" type="text" placeholder="Miejscowość *" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="f-email" class="sr-only">E-mail *</label>
-            <input id="f-email" name="email" type="email" placeholder="E-mail *" required>
-          </div>
-          <div class="form-field">
-            <label for="f-tel" class="sr-only">Nr telefonu *</label>
-            <input id="f-tel" name="telefon" type="tel" placeholder="Nr telefonu *" pattern="[0-9 +]{7,15}" required>
-          </div>
-        </div>
 
-        <p class="form-note" style="margin-top:0; margin-bottom:18px; text-align:left;"><b style="color:var(--ink);">PayU</b> — płatności realizowane są przez serwis PayU (przelewy oraz BLIK, Visa, Mastercard, Google Pay, Apple Pay).</p>
+          <p class="payu"><b>PayU</b> — płatności realizowane są przez serwis PayU (przelewy oraz BLIK, Visa, Mastercard, Google Pay, Apple Pay).</p>
 
-        <label class="form-consent">
-          <input type="checkbox" required>
-          <span>Tak, zgadzam się z
-          <a href="regulamin.html" target="_blank" rel="noopener" style="color:var(--gold-deep); font-weight:600;">Ogólnymi Warunkami</a>
-          i zapoznałem się z
-          <a href="polityka-prywatnosci.html" target="_blank" rel="noopener" style="color:var(--gold-deep); font-weight:600;">Polityką prywatności</a> AZ AURUM. *</span>
-        </label>
+          <label class="form-consent">
+            <input type="checkbox" required>
+            <span>Tak, zgadzam się z <a href="regulamin.html" target="_blank" rel="noopener">Ogólnymi Warunkami</a> i zapoznałem się z <a href="polityka-prywatnosci.html" target="_blank" rel="noopener">Polityką prywatności</a> AZ AURUM. *</span>
+          </label>
 
-        <button type="submit" class="btn">Tak, zamawiam</button>
-        <div class="btn-phone" role="note" aria-label="Zamówienie telefoniczne">Zamówienie można złożyć także telefonicznie: 784 622 333 (pon–pt, 9:00–17:00), e-mail: sklep@azaurum-sklep.pl</div>
-        <p class="form-note">W celu opłacenia zamówienia zostaniesz przekierowany na bezpieczną stronę dla wybranej metody płatności.</p>
-        <p class="form-note" style="font-weight:600; color:var(--ink-soft);">To formularz demonstracyjny — zamówienia nie są rejestrowane ani przekazywane do realizacji.</p>
-        <p class="form-note" style="margin-top:18px; font-size:11.5px; line-height:1.6;">Jeżeli przy zamówieniu podałeś swój adres e-mail, jako Klienta poinformujemy Cię e-mailem o naszych
-        produktach podobnych do tych, które kupiłeś. Możesz to oczywiście w każdej chwili odwołać. W przypadku
-        sprzeciwu wobec wykorzystywania przez AZ AURUM danych osobowych w celach reklamowych dla podobnych
-        produktów lub też chęci cofnięcia udzielonej zgody, prosimy o przesłanie krótkiej wiadomości e-mailem
-        na adres: <a href="mailto:sklep@azaurum-sklep.pl" style="color:var(--gold-deep); font-weight:600;">sklep@azaurum-sklep.pl</a></p>
-      </form>
+          <button type="submit" class="btn">Tak, zamawiam</button>
+          <div class="btn-phone" role="note" aria-label="Zamówienie telefoniczne">Zamówienie można złożyć także telefonicznie: 784 622 333 (pon–pt, 9:00–17:00), e-mail: sklep@azaurum-sklep.pl</div>
+          <p class="form-note">W celu opłacenia zamówienia zostaniesz przekierowany na bezpieczną stronę dla wybranej metody płatności.</p>
+          <p class="form-note demo">To formularz demonstracyjny — zamówienia nie są rejestrowane ani przekazywane do realizacji.</p>
+          <p class="form-note legal">Jeżeli przy zamówieniu podałeś swój adres e-mail, jako Klienta poinformujemy Cię e-mailem o naszych
+          produktach podobnych do tych, które kupiłeś. Możesz to oczywiście w każdej chwili odwołać. W przypadku
+          sprzeciwu wobec wykorzystywania przez AZ AURUM danych osobowych w celach reklamowych dla podobnych
+          produktów lub też chęci cofnięcia udzielonej zgody, prosimy o przesłanie krótkiej wiadomości e-mailem
+          na adres: <a href="mailto:sklep@azaurum-sklep.pl">sklep@azaurum-sklep.pl</a></p>
+        </form>
 
-      <div class="order-success" id="orderSuccess">
-        <div class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
-        <h3>Dziękujemy za zamówienie, <span id="successName">Kliencie</span>!</h3>
-        <p>Potwierdzenie zamówienia pierwszego numizmatu kolekcji „Dziesięć Przykazań” wysłaliśmy na podany adres e-mail. Nasz konsultant skontaktuje się telefonicznie, aby potwierdzić szczegóły dostawy.</p>
-        <span class="ref">Strona demonstracyjna — zamówienie nie zostało przekazane do realizacji</span>
-      </div>
+        <div class="order-success" id="orderSuccess" aria-live="polite">
+          <div class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h3>Dziękujemy za zamówienie, <span id="successName">Kliencie</span>!</h3>
+          <p>Potwierdzenie zamówienia pierwszego numizmatu kolekcji „Dziesięć Przykazań” wysłaliśmy na podany adres e-mail. Nasz konsultant skontaktuje się telefonicznie, aby potwierdzić szczegóły dostawy.</p>
+          <span class="ref">Strona demonstracyjna — zamówienie nie zostało przekazane do realizacji</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  (function(){
-    var form = document.getElementById('orderForm');
-    var success = document.getElementById('orderSuccess');
-    var successName = document.getElementById('successName');
-    if(!form) return;
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      if(!form.checkValidity()){
-        form.reportValidity();
-        return;
-      }
-      var imie = form.querySelector('#f-imie').value.trim();
-      successName.textContent = imie || 'Kliencie';
-      form.classList.add('hide');
-      success.classList.add('show');
-      success.scrollIntoView({behavior:'smooth', block:'center'});
-    });
-  })();
-</script>
+</main>
 
 <footer>
   <div class="wrap foot-grid">
     <div class="foot-contact">
-      <div class="foot-logo"><img src="images/azlogo-v2.png" alt="AZ Aurum — Numizmatyka Adam Zieliński" style="width:180px; height:auto; margin-bottom:14px;"></div>
+      <img src="images/azlogo-v2.png" alt="AZ Aurum — Numizmatyka Adam Zieliński">
       <span>Biuro Obsługi Klienta</span>
       <span>Tel: 784 622 333 (pon–pt, 9:00–17:00)</span>
       <span>Email: sklep@azaurum-sklep.pl</span>
@@ -854,7 +725,7 @@
   </div>
 
   <div class="wrap payment-row">
-    <div class="payment-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="10.5" width="14" height="9.5" rx="1.6" stroke="currentColor" stroke-width="1.5"/><path d="M8 10.5V8a4 4 0 018 0v2.5" stroke="currentColor" stroke-width="1.5"/></svg>Bezpieczne połączenie SSL</div>
+    <div class="payment-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="5" y="10.5" width="14" height="9.5" rx="1.6" stroke="currentColor" stroke-width="1.5"/><path d="M8 10.5V8a4 4 0 018 0v2.5" stroke="currentColor" stroke-width="1.5"/></svg>Bezpieczne połączenie SSL</div>
     <div class="payment-badge">Szybki przelew</div>
     <div class="payment-badge">BLIK</div>
     <div class="payment-badge">Visa · Mastercard</div>
@@ -872,5 +743,31 @@
   </div>
 </footer>
 
+<script>
+  (function(){
+    var form = document.getElementById('orderForm');
+    var success = document.getElementById('orderSuccess');
+    var successName = document.getElementById('successName');
+    if(form){
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if(!form.checkValidity()){ form.reportValidity(); return; }
+        var imie = form.querySelector('#f-imie').value.trim();
+        successName.textContent = imie || 'Kliencie';
+        form.classList.add('hide');
+        success.classList.add('show');
+        success.scrollIntoView({behavior:'smooth', block:'center'});
+      });
+    }
+    var items = document.querySelectorAll('.strike');
+    if(!('IntersectionObserver' in window)){ items.forEach(function(el){ el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, {threshold:.2, rootMargin:'0px 0px -40px 0px'});
+    items.forEach(function(el){ io.observe(el); });
+  })();
+</script>
 </body>
 </html>
